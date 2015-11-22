@@ -49,27 +49,24 @@
             this.label_time.AutoSize = true;
             this.label_time.Location = new System.Drawing.Point(156, 324);
             this.label_time.Name = "label_time";
-            this.label_time.Size = new System.Drawing.Size(187, 13);
+            this.label_time.Size = new System.Drawing.Size(0, 13);
             this.label_time.TabIndex = 1;
-            this.label_time.Text = "Время Вашего прибывания: 20 мин";
             // 
             // label_getmoney
             // 
             this.label_getmoney.AutoSize = true;
-            this.label_getmoney.Location = new System.Drawing.Point(156, 405);
+            this.label_getmoney.Location = new System.Drawing.Point(156, 369);
             this.label_getmoney.Name = "label_getmoney";
-            this.label_getmoney.Size = new System.Drawing.Size(169, 13);
+            this.label_getmoney.Size = new System.Drawing.Size(0, 13);
             this.label_getmoney.TabIndex = 2;
-            this.label_getmoney.Text = "С Вашего счета списано: 20 руб";
             // 
             // label_balance
             // 
             this.label_balance.AutoSize = true;
             this.label_balance.Location = new System.Drawing.Point(156, 531);
             this.label_balance.Name = "label_balance";
-            this.label_balance.Size = new System.Drawing.Size(157, 13);
+            this.label_balance.Size = new System.Drawing.Size(0, 13);
             this.label_balance.TabIndex = 3;
-            this.label_balance.Text = "Ваш текущий баланс: 100 руб";
             // 
             // Form_final
             // 
@@ -87,6 +84,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_final_Closed);
             this.Load += new System.EventHandler(this.Form_final_Load);
+            this.DoubleClick += new System.EventHandler(this.Form_final_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

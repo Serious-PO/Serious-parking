@@ -52,9 +52,8 @@
             this.label_name.Location = new System.Drawing.Point(257, 503);
             this.label_name.Margin = new System.Windows.Forms.Padding(0);
             this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(180, 13);
+            this.label_name.Size = new System.Drawing.Size(0, 13);
             this.label_name.TabIndex = 1;
-            this.label_name.Text = "Здравствуйте, Борис Васильевич!";
             this.label_name.Click += new System.EventHandler(this.label_name_Click);
             // 
             // Form_open

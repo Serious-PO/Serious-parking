@@ -6,14 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using classUsers;
 namespace Terminal
 {
     public partial class Form_final : Form
     {
-        public Form_final()
+        
+        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        Form_close frm;
+        Form1 frm1;
+        public Form_final(Form_close f,Form1 f1)
         {
+            user = new DataSet1TableAdapters.UserQuerryTableAdapter();
             InitializeComponent();
+            frm = f;
+            frm1 = f1;
             label_final.ForeColor = Color.Green;
             label_final.Font = new Font("label_final", 40);
 
@@ -29,17 +36,50 @@ namespace Terminal
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form_final_Load(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
+                if (frm.number() == user.GetData().Rows[i]["CarNumber"].ToString())
+                {
+                    User first = new User(user.GetData().Rows[i]["FirstName"].ToString(),
+                       user.GetData().Rows[i]["LastName"].ToString(),
+                       DateTime.Parse(user.GetData().Rows[i]["BirthDay"].ToString()),
+                       Int32.Parse(user.GetData().Rows[i]["Balance"].ToString()),
+                       user.GetData().Rows[i]["CarNumber"].ToString(),
+                       user.GetData().Rows[i]["TelephoneNumber"].ToString(),
+                       DateTime.Parse(user.GetData().Rows[i]["LastEnter"].ToString()),
+                       DateTime.Parse(user.GetData().Rows[i]["LastQuit"].ToString()));
+                    label_time.Text = "Время вашего пребывания: " + first.getTime() + " мин";
+                    label_getmoney.Text = "С Вашего счета списано: " + first.getChangesInBalance() + " руб.";
+                    user.updateBalance(first.getBalance(), frm.number());
+                    label_balance.Text = "На Вашем счете осталось: " + user.GetData().Rows[i]["Balance"].ToString() + " руб.";
+                }
+            }
         }
 
         private void Form_final_Closed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
         }
+
+        private void Form_final_DoubleClick(object sender, EventArgs e)
+        {
+            
+            DialogResult vibor2 = MessageBox.Show("Вы действительно хотите  повторить тестирование?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (vibor2 == DialogResult.Yes)
+            {
+                frm1.Show();
+                this.Close();
+            }
+            if (vibor2 == DialogResult.No)
+            {
+
+            }
+        }
+
     }
 }

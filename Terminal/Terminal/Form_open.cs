@@ -7,18 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace Terminal
 {
     public partial class Form_open : Form
     {
-        Form_close form_close = new Form_close();
-        public Form_open()
+        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        private Form_close form_close; 
+        private Form_car_number frm;
+        Form1 frm1;
+        public Form_open(Form_car_number f,Form1 f1)
         {
+            user = new Terminal.DataSet1TableAdapters.UserQuerryTableAdapter();
+            frm = f;
+            frm1 = f1;
             InitializeComponent();
             label_name.ForeColor = Color.Green;
             label_name.Font = new Font("label_name", 30);
-
-      
+            
         }
 
         private void label_name_Click(object sender, EventArgs e)
@@ -28,18 +34,27 @@ namespace Terminal
 
         private void Form_open_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
 
+                if (user.GetData().Rows[i]["CarNumber"].ToString() == frm.number())
+                {
+                    label_name.Text = "Здравствуйте, " + user.GetData().Rows[i]["FirstName"].ToString()
+                        + " " + user.GetData().Rows[i]["LastName"].ToString();
+                }
+            }
         }
 
         private void pictureBox_open_Click(object sender, EventArgs e)
         {
+            form_close = new Form_close(frm1);
             form_close.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void Form_open_Closed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
         }
     }
 }

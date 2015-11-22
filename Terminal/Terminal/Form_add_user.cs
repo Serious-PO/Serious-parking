@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Terminal
+{
+    public partial class Form_add_user : Form
+    {
+        private bool tryDate = false;
+        private bool tryNumb = true;
+        private bool tryPhoneNum = false;
+        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        public Form_add_user()
+        {
+            user = new DataSet1TableAdapters.UserQuerryTableAdapter();
+            InitializeComponent();
+        }
+
+        private void button_apply_Click(object sender, EventArgs e)
+        {
+            
+            tryBox();
+            
+                
+            if ((tryDate == true)&&(tryNumb==true)&&(tryPhoneNum==true))
+            {
+                DialogResult vibor2 = MessageBox.Show("Вы действительно хотите добавить пользователя?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (vibor2 == DialogResult.Yes)
+                {
+                    String datTime;
+                    DateTime inBox = new DateTime();
+                    inBox.AddHours(0);
+                    inBox.AddMinutes(0);
+                    inBox.AddSeconds(0);
+                    datTime = textBox_day.Text + "." + textBox_month.Text + "." + textBox_year.Text;
+                    inBox = DateTime.Parse(datTime);
+                    MessageBox.Show("Пользователь добавлен!");
+                    user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
+                        inBox, 100,
+                    (textBox_carNumber1.Text+textBox_carNumber2.Text+textBox_carNumber3.Text), text_telephone.Text.ToString());
+
+                    
+
+                }
+                if (vibor2 == DialogResult.No)
+                {
+
+                }
+            }
+            else
+                if(tryDate==false)
+                MessageBox.Show("Неверный формат даты!");
+        }
+
+
+
+        private void text_telephone_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void text_telephone_press(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+        private void textBox_carNumber3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tryKey = e.KeyChar;
+            if (((tryKey < 'А') || (tryKey > 'Я'))&&tryKey!='\b')
+                e.Handled = true;
+        }
+        private void textBox_carNumber2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+        private void textBox_carNumber1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tryKey = e.KeyChar;
+            if (((tryKey < 'А') || (tryKey > 'Я')) && tryKey != '\b')
+                e.Handled = true;
+        }
+       
+        
+        private void tryBox()
+        {
+            String tryNum;
+            
+            try
+            {
+                int day;
+                int month;
+                int year;
+                day = Int32.Parse(textBox_day.Text);
+                month = Int32.Parse(textBox_month.Text);
+                year = Int32.Parse(textBox_year.Text);
+                if (((day >= 0) && (day <= 31)) && ((month >= 0) && (month <= 12)) && ((year >= 1915) && (year <= 3000)))
+                    tryDate = true;
+            }
+            catch
+            {
+                MessageBox.Show("Неверный формат даты!");
+            }
+
+
+            tryNum = textBox_carNumber1.Text;
+            if ((tryNum.Length > 2) || (tryNum.Length < 2))
+            {
+                tryNumb = false;
+                MessageBox.Show("Неверный формат номера автомобиля!");
+            }
+            else
+            {
+                tryNum = textBox_carNumber2.Text;
+                if ((tryNum.Length > 3) || (tryNum.Length < 3))
+                {
+                    tryNumb = false;
+                    MessageBox.Show("Неверный формат номера автомобиля!");
+                }
+                else
+                {
+                    tryNum = textBox_carNumber3.Text;
+                    if ((tryNum.Length > 1) || (tryNum.Length < 1))
+                    {
+                        tryNumb = false;
+                        MessageBox.Show("Неверный формат номера автомобиля!");
+                    }
+                    else
+                        tryNumb = true;
+                }
+            }
+
+            tryNum = text_telephone.Text;
+            if (tryNum.Length == 11)
+                tryPhoneNum = true;
+            else
+            {
+                if (tryNum.Length > 11)
+                    MessageBox.Show("Введено слишком много цифр в номер телефона!");
+                else
+                    MessageBox.Show("Введено слишком мало цифр в номер телефона!");
+                tryPhoneNum = false;
+            }
+
+
+        }
+    }
+}
