@@ -49,3 +49,20 @@ C:\Users\u131149\Documents\Visual Studio 2010\Projects\Terminal\Terminal\obj\x86
 C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технол.программ.2014\Terminal\Terminal\bin\Debug\Terminal.exe.config
 C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технол.программ.2014\Terminal\Terminal\obj\x86\Debug\Terminal.exe
 C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технол.программ.2014\Terminal\Terminal\obj\x86\Debug\Terminal.pdb
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\bin\Debug\Database1.sdf
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\bin\Debug\Terminal.exe.config
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\bin\Debug\Terminal.exe
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\bin\Debug\Terminal.pdb
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form1.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_add_user.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_car_number.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_change_price.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_close.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_Error.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_final.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_open.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_operator.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Properties.Resources.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.csproj.GenerateResource.Cache
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.exe
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.pdb

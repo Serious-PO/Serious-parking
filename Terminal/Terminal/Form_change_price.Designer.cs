@@ -96,6 +96,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_change_price";
             this.Text = "Form_change_price";
+            this.Load += new System.EventHandler(this.Form_change_price_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,8 +106,8 @@
 
         private System.Windows.Forms.Label label_price;
         private System.Windows.Forms.Label label_password;
-        private System.Windows.Forms.TextBox textBox_password;
-        private System.Windows.Forms.TextBox textBox_price;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox textBox_password;
+        public System.Windows.Forms.TextBox textBox_price;
+        public System.Windows.Forms.Button button1;
     }
 }

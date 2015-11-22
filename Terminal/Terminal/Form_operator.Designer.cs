@@ -90,15 +90,15 @@
             // 
             // textBox_carNumber3
             // 
-            this.textBox_carNumber3.Location = new System.Drawing.Point(375, 120);
+            this.textBox_carNumber3.Location = new System.Drawing.Point(362, 120);
             this.textBox_carNumber3.Name = "textBox_carNumber3";
-            this.textBox_carNumber3.Size = new System.Drawing.Size(34, 20);
+            this.textBox_carNumber3.Size = new System.Drawing.Size(47, 20);
             this.textBox_carNumber3.TabIndex = 19;
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
             // textBox_carNumber2
             // 
-            this.textBox_carNumber2.Location = new System.Drawing.Point(313, 120);
+            this.textBox_carNumber2.Location = new System.Drawing.Point(300, 120);
             this.textBox_carNumber2.Name = "textBox_carNumber2";
             this.textBox_carNumber2.Size = new System.Drawing.Size(56, 20);
             this.textBox_carNumber2.TabIndex = 18;
@@ -108,7 +108,7 @@
             // 
             this.textBox_carNumber1.Location = new System.Drawing.Point(261, 120);
             this.textBox_carNumber1.Name = "textBox_carNumber1";
-            this.textBox_carNumber1.Size = new System.Drawing.Size(46, 20);
+            this.textBox_carNumber1.Size = new System.Drawing.Size(33, 20);
             this.textBox_carNumber1.TabIndex = 17;
             this.textBox_carNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber1_KeyPress);
             // 
@@ -150,13 +150,13 @@
 
         private System.Windows.Forms.Label label_name;
         private System.Windows.Forms.Label label_money;
-        private System.Windows.Forms.Button button_apply_balance;
+        public System.Windows.Forms.Button button_apply_balance;
         private System.Windows.Forms.Button button_add_user;
         private System.Windows.Forms.Button button_change_price;
-        private System.Windows.Forms.TextBox textBox_carNumber3;
-        private System.Windows.Forms.TextBox textBox_carNumber2;
-        private System.Windows.Forms.TextBox textBox_carNumber1;
-        private System.Windows.Forms.TextBox textBox_money;
+        public System.Windows.Forms.TextBox textBox_carNumber3;
+        public System.Windows.Forms.TextBox textBox_carNumber2;
+        public System.Windows.Forms.TextBox textBox_carNumber1;
+        public System.Windows.Forms.TextBox textBox_money;
     }
 }
 

@@ -15,6 +15,7 @@ namespace Terminal
         private bool tryBlnc;
         Form_add_user form_add_user;
         Form_change_price form_change_price;
+        private Test test;
 
         DataSet1TableAdapters.UserQuerryTableAdapter user;
         public Form_operator()
@@ -30,22 +31,24 @@ namespace Terminal
             if((tryBlnc==true)&&(tryNumb==true))
                 for (int i = 0; i < user.GetData().Rows.Count; i++)
                 {
-                    if ((carNumber == user.GetData().Rows[i]["CarNumber"].ToString()) && (Double.Parse(textBox_money.Text.ToString()) > 0))
+                    if ((user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text)) && (Double.Parse(textBox_money.Text.ToString()) > 0))
                     {
-                        user.updateBalance((double.Parse(user.GetData().Rows[i]["Balance"].ToString())+
-                            double.Parse(textBox_money.Text.ToString())), carNumber);
+      
                         DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (vibor2 == DialogResult.Yes)
                         {
+                            user.updateBalance((double.Parse(user.GetData().Rows[i]["Balance"].ToString()) +
+                           double.Parse(textBox_money.Text.ToString())), carNumber);
                             MessageBox.Show("Баланс пополнен!");
                             textBox_carNumber1.Text = "";
                             textBox_carNumber2.Text = "";
                             textBox_carNumber3.Text = "";
                             textBox_money.Text = "";
+                            break;
                         }
                         if (vibor2 == DialogResult.No)
                         {
-
+                            break;
                         }
 
                     }
@@ -85,7 +88,7 @@ namespace Terminal
 
         private void Form_operator_Load(object sender, EventArgs e)
         {
-
+            test = new Test(this);
         }
 
         private void tryBox()
@@ -111,7 +114,7 @@ namespace Terminal
 
 
             tryNum = textBox_carNumber1.Text;
-            if ((tryNum.Length > 2) || (tryNum.Length < 2))
+            if ((tryNum.Length > 1) || (tryNum.Length < 1))
             {
                 tryNumb = false;
                 MessageBox.Show("Неверный формат номера автомобиля!");
@@ -127,10 +130,11 @@ namespace Terminal
                 else
                 {
                     tryNum = textBox_carNumber3.Text;
-                    if ((tryNum.Length > 1) || (tryNum.Length < 1))
+                    if ((tryNum.Length > 2) || (tryNum.Length < 2))
                     {
                         tryNumb = false;
                         MessageBox.Show("Неверный формат номера автомобиля!");
+                        
                     }
                     else
                         tryNumb = true;
@@ -141,7 +145,7 @@ namespace Terminal
         private void textBox_carNumber1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'А') || (tryKey > 'Я')) && tryKey != '\b')
+            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
                 e.Handled = true;
         }
 
@@ -154,7 +158,7 @@ namespace Terminal
         private void textBox_carNumber3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'А') || (tryKey > 'Я')) && tryKey != '\b')
+            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
                 e.Handled = true;
         }
 

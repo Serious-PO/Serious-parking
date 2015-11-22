@@ -152,23 +152,23 @@
             // 
             this.textBox_carNumber1.Location = new System.Drawing.Point(259, 231);
             this.textBox_carNumber1.Name = "textBox_carNumber1";
-            this.textBox_carNumber1.Size = new System.Drawing.Size(46, 20);
+            this.textBox_carNumber1.Size = new System.Drawing.Size(24, 20);
             this.textBox_carNumber1.TabIndex = 14;
             this.textBox_carNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber1_KeyPress);
             // 
             // textBox_carNumber2
             // 
-            this.textBox_carNumber2.Location = new System.Drawing.Point(311, 231);
+            this.textBox_carNumber2.Location = new System.Drawing.Point(289, 231);
             this.textBox_carNumber2.Name = "textBox_carNumber2";
-            this.textBox_carNumber2.Size = new System.Drawing.Size(56, 20);
+            this.textBox_carNumber2.Size = new System.Drawing.Size(69, 20);
             this.textBox_carNumber2.TabIndex = 15;
             this.textBox_carNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber2_KeyPress);
             // 
             // textBox_carNumber3
             // 
-            this.textBox_carNumber3.Location = new System.Drawing.Point(373, 231);
+            this.textBox_carNumber3.Location = new System.Drawing.Point(364, 231);
             this.textBox_carNumber3.Name = "textBox_carNumber3";
-            this.textBox_carNumber3.Size = new System.Drawing.Size(34, 20);
+            this.textBox_carNumber3.Size = new System.Drawing.Size(43, 20);
             this.textBox_carNumber3.TabIndex = 16;
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
@@ -197,6 +197,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_add_user";
             this.Text = "Добавление нового пользователя";
+            this.Load += new System.EventHandler(this.Form_add_user_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,20 +205,20 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox_last_name;
-        private System.Windows.Forms.TextBox textBox_first_name;
-        private System.Windows.Forms.Button button_apply;
+        public System.Windows.Forms.TextBox textBox_last_name;
+        public System.Windows.Forms.TextBox textBox_first_name;
+        public System.Windows.Forms.Button button_apply;
         private System.Windows.Forms.Label label_last_name;
         private System.Windows.Forms.Label label_first_name;
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.Label label_number;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox text_telephone;
-        private System.Windows.Forms.TextBox textBox_year;
-        private System.Windows.Forms.TextBox textBox_month;
-        private System.Windows.Forms.TextBox textBox_day;
-        private System.Windows.Forms.TextBox textBox_carNumber1;
-        private System.Windows.Forms.TextBox textBox_carNumber2;
-        private System.Windows.Forms.TextBox textBox_carNumber3;
+        public System.Windows.Forms.TextBox text_telephone;
+        public System.Windows.Forms.TextBox textBox_year;
+        public System.Windows.Forms.TextBox textBox_month;
+        public System.Windows.Forms.TextBox textBox_day;
+        public System.Windows.Forms.TextBox textBox_carNumber1;
+        public System.Windows.Forms.TextBox textBox_carNumber2;
+        public System.Windows.Forms.TextBox textBox_carNumber3;
     }
 }

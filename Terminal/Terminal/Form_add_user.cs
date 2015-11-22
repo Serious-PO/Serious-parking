@@ -11,26 +11,56 @@ namespace Terminal
 {
     public partial class Form_add_user : Form
     {
+        private Test test;
+        public bool testLeft=false;
         private bool tryDate = false;
         private bool tryNumb = true;
         private bool tryPhoneNum = false;
+        private bool tryAdd = true;
+        private int n;
+        bool isNumeric = true;
         DataSet1TableAdapters.UserQuerryTableAdapter user;
         public Form_add_user()
         {
+            
             user = new DataSet1TableAdapters.UserQuerryTableAdapter();
             InitializeComponent();
+            
         }
 
         private void button_apply_Click(object sender, EventArgs e)
         {
             
             tryBox();
-            
                 
-            if ((tryDate == true)&&(tryNumb==true)&&(tryPhoneNum==true))
+            if ((tryDate == true)&&(tryNumb==true)&&(tryPhoneNum==true)&&(tryAdd==true))
             {
-                DialogResult vibor2 = MessageBox.Show("Вы действительно хотите добавить пользователя?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (vibor2 == DialogResult.Yes)
+                if (testLeft == false)
+                {
+                    DialogResult vibor2 = MessageBox.Show("Вы действительно хотите добавить пользователя?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (vibor2 == DialogResult.Yes)
+                    {
+                        String datTime;
+                        DateTime inBox = new DateTime();
+                        inBox.AddHours(0);
+                        inBox.AddMinutes(0);
+                        inBox.AddSeconds(0);
+                        datTime = textBox_day.Text + "." + textBox_month.Text + "." + textBox_year.Text;
+                        inBox = DateTime.Parse(datTime);
+                        MessageBox.Show("Пользователь добавлен!");
+                        user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
+                            inBox, 100,
+                        (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString());
+
+
+
+                    }
+                    if (vibor2 == DialogResult.No)
+                    {
+
+                    }
+                }
+                else
                 {
                     String datTime;
                     DateTime inBox = new DateTime();
@@ -42,19 +72,15 @@ namespace Terminal
                     MessageBox.Show("Пользователь добавлен!");
                     user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
                         inBox, 100,
-                    (textBox_carNumber1.Text+textBox_carNumber2.Text+textBox_carNumber3.Text), text_telephone.Text.ToString());
-
-                    
-
-                }
-                if (vibor2 == DialogResult.No)
-                {
+                    (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString());
 
                 }
             }
             else
                 if(tryDate==false)
                 MessageBox.Show("Неверный формат даты!");
+            testLeft = false;
+            tryAdd = true;
         }
 
 
@@ -71,7 +97,7 @@ namespace Terminal
         private void textBox_carNumber3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'А') || (tryKey > 'Я'))&&tryKey!='\b')
+            if (((tryKey < 'A') || (tryKey > 'Z'))&&tryKey!='\b')
                 e.Handled = true;
         }
         private void textBox_carNumber2_KeyPress(object sender, KeyPressEventArgs e)
@@ -82,7 +108,7 @@ namespace Terminal
         private void textBox_carNumber1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'А') || (tryKey > 'Я')) && tryKey != '\b')
+            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
                 e.Handled = true;
         }
        
@@ -93,6 +119,7 @@ namespace Terminal
             
             try
             {
+                tryDate = false;
                 int day;
                 int month;
                 int year;
@@ -109,7 +136,7 @@ namespace Terminal
 
 
             tryNum = textBox_carNumber1.Text;
-            if ((tryNum.Length > 2) || (tryNum.Length < 2))
+            if (tryNum.Length!=1)
             {
                 tryNumb = false;
                 MessageBox.Show("Неверный формат номера автомобиля!");
@@ -117,7 +144,7 @@ namespace Terminal
             else
             {
                 tryNum = textBox_carNumber2.Text;
-                if ((tryNum.Length > 3) || (tryNum.Length < 3))
+                if (tryNum.Length!=3)
                 {
                     tryNumb = false;
                     MessageBox.Show("Неверный формат номера автомобиля!");
@@ -125,7 +152,7 @@ namespace Terminal
                 else
                 {
                     tryNum = textBox_carNumber3.Text;
-                    if ((tryNum.Length > 1) || (tryNum.Length < 1))
+                    if (tryNum.Length!=2)
                     {
                         tryNumb = false;
                         MessageBox.Show("Неверный формат номера автомобиля!");
@@ -140,13 +167,29 @@ namespace Terminal
                 tryPhoneNum = true;
             else
             {
-                if (tryNum.Length > 11)
-                    MessageBox.Show("Введено слишком много цифр в номер телефона!");
-                else
-                    MessageBox.Show("Введено слишком мало цифр в номер телефона!");
-                tryPhoneNum = false;
+                   
+                    if (tryNum.Length > 11)
+                        MessageBox.Show("Введено слишком много цифр в номер телефона!");
+                    else
+                        MessageBox.Show("Введено слишком мало цифр в номер телефона!");
+                    tryPhoneNum = false;
             }
+           for(int i=0;i<user.GetData().Rows.Count;i++)
+             {
+                 if (user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text))
+                 {
+     
+                     MessageBox.Show("Такой номер уже существует в БД!");
+                     tryAdd = false;
+                     break;
+                 }
+             }
 
+        }
+
+        private void Form_add_user_Load(object sender, EventArgs e)
+        {
+            test = new Test(this);
 
         }
     }

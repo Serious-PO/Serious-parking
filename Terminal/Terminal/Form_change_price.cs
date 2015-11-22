@@ -12,6 +12,7 @@ namespace Terminal
 {
     public partial class Form_change_price : Form
     {
+        private Test test;
         private bool tryPrice;
         public Form_change_price()
         {
@@ -43,6 +44,7 @@ namespace Terminal
             {
                 User user = new User();
                 user.changePrice(double.Parse(textBox_price.Text.ToString()));
+                MessageBox.Show("Стоимость изменена!");
                 this.Close();
             }
             else
@@ -68,6 +70,11 @@ namespace Terminal
                 tryPrice = false;
                 MessageBox.Show("Поле оплаты не может быть пустым!");
             }
+        }
+
+        private void Form_change_price_Load(object sender, EventArgs e)
+        {
+            test = new Test(this);
         }
 
     }
