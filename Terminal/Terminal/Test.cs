@@ -10,31 +10,41 @@ namespace Terminal
         private Form_operator form_operator;
         private Form_add_user form_add_user;
         private Form_change_price form_change_price;
-        
+        private bool test=false; 
+
         public Test(Form_operator form_operator_cons)
         {
-            form_operator = form_operator_cons;
-            form_operator_cons_true();
-            form_operator_cons_false_car_num();
-            form_operator_cons_false_car();
-            form_operator_cons_false_add_money();
+            if (test == true)
+            {
+                form_operator = form_operator_cons;
+                form_operator_cons_true();
+                form_operator_cons_false_car_num();
+                form_operator_cons_false_car();
+                form_operator_cons_false_add_money();
+            }
         }
         public Test(Form_add_user form_add_user_cons)
         {
-            form_add_user = form_add_user_cons;
-            add_user_test_true();
-            add_user_test_false_date();
-            add_user_test_false_car();
-            add_user_test_false_bd();
-            add_user_test_false_phone_num();
+            if (test == true)
+            {
+                form_add_user = form_add_user_cons;
+                add_user_test_true();
+                add_user_test_false_date();
+                add_user_test_false_car();
+                add_user_test_false_bd();
+                add_user_test_false_phone_num();
+            }
 
         }
         public Test(Form_change_price form_change_price_cons)
         {
-            form_change_price = form_change_price_cons;
-            form_change_price_true();
-            form_change_price_false_price();
-            form_change_price_false_pas();
+            if (test == true)
+            {
+                form_change_price = form_change_price_cons;
+                form_change_price_true();
+                form_change_price_false_price();
+                form_change_price_false_pas();
+            }
         }
 
         private void add_user_test_true()

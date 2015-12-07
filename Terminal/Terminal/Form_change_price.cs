@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 using classUsers;
 
 namespace Terminal
@@ -13,6 +14,7 @@ namespace Terminal
     public partial class Form_change_price : Form
     {
         private Test test;
+        
         private bool tryPrice;
         public Form_change_price()
         {
@@ -43,7 +45,8 @@ namespace Terminal
             if ((textBox_password.Text.ToString() == "123456") && (tryPrice == true))
             {
                 User user = new User();
-                user.changePrice(double.Parse(textBox_price.Text.ToString()));
+                ConfigurationSettings.AppSettings.Set("Price",textBox_price.Text);
+                user.changePrice();
                 MessageBox.Show("Стоимость изменена!");
                 this.Close();
             }
@@ -61,19 +64,26 @@ namespace Terminal
                 tryPrice = true;
                 if (price < 0)
                 {
-                    MessageBox.Show("Оплата не может быть отрицательной!");
+                    MessageBox.Show("Цена за минуту не может быть отрицательной!");
+                    tryPrice = false;
+                }
+                if (price > 10000)
+                {
+                    MessageBox.Show("Цена за минуту не может быть больше 10000");
                     tryPrice = false;
                 }
             }
             catch
             {
                 tryPrice = false;
-                MessageBox.Show("Поле оплаты не может быть пустым!");
+                MessageBox.Show("Цена за минуту не может быть пустым!");
             }
         }
 
         private void Form_change_price_Load(object sender, EventArgs e)
         {
+            
+            
             test = new Test(this);
         }
 
