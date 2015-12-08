@@ -59,6 +59,8 @@ namespace Terminal
                     label_balance.Text = "На Вашем счете осталось: " + user.GetData().Rows[i]["Balance"].ToString() + " руб.";
                 }
             }
+
+           
         }
 
         private void Form_final_Closed(object sender, FormClosedEventArgs e)

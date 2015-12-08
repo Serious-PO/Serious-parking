@@ -189,8 +189,7 @@ namespace Terminal
 
         private void Form_add_user_Load(object sender, EventArgs e)
         {
-            test = new Test(this);
-
+             test = new Test(this);
         }
     }
 }

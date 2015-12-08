@@ -24,7 +24,6 @@ namespace Terminal
             InitializeComponent();
             label_name.ForeColor = Color.Green;
             label_name.Font = new Font("label_name", 30);
-            
         }
 
         private void label_name_Click(object sender, EventArgs e)
@@ -43,6 +42,7 @@ namespace Terminal
                         + " " + user.GetData().Rows[i]["LastName"].ToString();
                 }
             }
+            label_name.Location = new Point((640 - (label_name.Width / 2)), 503);
         }
 
         private void pictureBox_open_Click(object sender, EventArgs e)

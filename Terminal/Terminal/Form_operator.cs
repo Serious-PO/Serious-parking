@@ -100,10 +100,15 @@ namespace Terminal
                 blnc = Double.Parse(textBox_money.Text);
                 if (blnc > 0)
                     tryBlnc = true;
-                else
+                if (blnc<0)
                 {
                     tryBlnc = false;
                     MessageBox.Show("Баланс не может быть отрицательным!");
+                }
+                if(blnc>100000)
+                {
+                    tryBlnc = false;
+                    MessageBox.Show("Баланс не может быть больше 100000!");
                 }
             }
             catch
