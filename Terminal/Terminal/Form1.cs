@@ -11,7 +11,7 @@ namespace Terminal
 {
     public partial class Form1 : Form
     {
-        
+        Form_close formC;
         Form_car_number form2;
         Form_operator frm;
         public Form1()
@@ -27,6 +27,8 @@ namespace Terminal
         {
             form2  = new Form_car_number(this);
             form2.Show();
+            formC = new Form_close(this);
+            formC.Show();
             this.Hide();
         }
 

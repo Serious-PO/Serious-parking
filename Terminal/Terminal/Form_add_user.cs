@@ -50,7 +50,7 @@ namespace Terminal
                         MessageBox.Show("Пользователь добавлен!");
                         user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
                             inBox, 100,
-                        (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString());
+                        (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), inBox,false);
 
 
 
@@ -72,7 +72,7 @@ namespace Terminal
                     MessageBox.Show("Пользователь добавлен!");
                     user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
                         inBox, 100,
-                    (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString());
+                    (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), inBox,false);
 
                 }
             }

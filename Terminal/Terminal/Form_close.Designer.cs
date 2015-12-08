@@ -72,8 +72,9 @@
             this.MinimizeBox = false;
             this.Name = "Form_close";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Обработка номера автомобиля";
+            this.Text = "Выезд";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_close_Closed);
+            this.Load += new System.EventHandler(this.Form_close_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
