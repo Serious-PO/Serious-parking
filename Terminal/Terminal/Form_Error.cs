@@ -38,7 +38,6 @@ namespace Terminal
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            frm.Show();
             this.Close();
         }
 
@@ -49,7 +48,7 @@ namespace Terminal
 
         private void Form_Error_Load(object sender, EventArgs e)
         {
-            label_no.Text = lab + "запрещён, обратитесь к оператору!";
+            label_no.Text = lab + " запрещён, обратитесь к оператору!";
         }
     }
 }
