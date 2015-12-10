@@ -18,14 +18,14 @@ namespace Terminal
         private Test test;
         Form_close formC;
         Form_car_number form2;
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
         public Form_operator()
         {
             form2 = new Form_car_number(this);
             form2.Show();
             formC = new Form_close(this);
             formC.Show();
-            user = new DataSet1TableAdapters.UserQuerryTableAdapter();
+            user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
             InitializeComponent();
 
         }

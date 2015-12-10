@@ -11,13 +11,13 @@ namespace Terminal
 {
     public partial class Form_close : Form
     {
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
         Form_Error form_error;
         Form_final form_final;
         Form_operator frm;
         public Form_close(Form_operator f)
         {
-            user = new Terminal.DataSet1TableAdapters.UserQuerryTableAdapter();
+            user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             frm = f;
             InitializeComponent();
             
