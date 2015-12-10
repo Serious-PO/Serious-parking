@@ -16,12 +16,18 @@ namespace Terminal
         Form_add_user form_add_user;
         Form_change_price form_change_price;
         private Test test;
-
+        Form_close formC;
+        Form_car_number form2;
         DataSet1TableAdapters.UserQuerryTableAdapter user;
         public Form_operator()
         {
+            form2 = new Form_car_number(this);
+            form2.Show();
+            formC = new Form_close(this);
+            formC.Show();
             user = new DataSet1TableAdapters.UserQuerryTableAdapter();
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -150,7 +156,20 @@ namespace Terminal
         private void textBox_carNumber1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
+            if ( ((tryKey == 'А')
+                | (tryKey == 'В')
+                | (tryKey == 'Е')
+                | (tryKey == 'К')
+                | (tryKey == 'М')
+                | (tryKey == 'Н')
+                | (tryKey == 'О')
+                | (tryKey == 'Р')
+                | (tryKey == 'С')
+                | (tryKey == 'Т')
+                | (tryKey == 'У')
+                | (tryKey == 'Х')
+                ) | tryKey == '\b') return;
+            else
                 e.Handled = true;
         }
 
@@ -163,7 +182,20 @@ namespace Terminal
         private void textBox_carNumber3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
+            if ( ((tryKey == 'А')
+                | (tryKey == 'В')
+                | (tryKey == 'Е')
+                | (tryKey == 'К')
+                | (tryKey == 'М')
+                | (tryKey == 'Н')
+                | (tryKey == 'О')
+                | (tryKey == 'Р')
+                | (tryKey == 'С')
+                | (tryKey == 'Т')
+                | (tryKey == 'У')
+                | (tryKey == 'Х')
+                ) | tryKey == '\b') return;
+            else
                 e.Handled = true;
         }
 

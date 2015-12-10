@@ -6,6 +6,9 @@
 }
 
 namespace Terminal.DataSet1TableAdapters {
+    partial class UserQuerry1TableAdapter
+    {
+    }
     
     
     public partial class UserQuerryTableAdapter {
