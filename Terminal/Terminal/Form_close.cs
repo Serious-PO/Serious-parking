@@ -18,7 +18,6 @@ namespace Terminal
         private bool check;
         public Form_close(Form_operator f)
         {
-            user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             frm = f;
             InitializeComponent();
             
@@ -58,6 +57,15 @@ namespace Terminal
         {
             return comboBox_num.Text;
         }
+        public void update_box()
+        {
+
+            comboBox_num.Items.Clear();
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
+                comboBox_num.Items.Add(user.GetData().Rows[i]["CarNumber"].ToString());
+            }
+        }
         public void new_lable()
         {
             for (int i = 0; i < user.GetData().Rows.Count; i++)
@@ -82,14 +90,21 @@ namespace Terminal
         private void Form_close_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dataSet1.UserQuerry1' table. You can move, or remove it, as needed.
-            this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
+            user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
+            update_box();
             new_lable();
+            this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
 
         }
 
         private void comboBox_num_SelectedIndexChanged(object sender, EventArgs e)
         {
             new_lable();
+        }
+
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            update_box();
         }
     }
 }

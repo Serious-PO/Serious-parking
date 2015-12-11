@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_close));
             this.button_close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_num = new System.Windows.Forms.ComboBox();
+            this.label_check = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button_refresh = new System.Windows.Forms.Button();
             this.userQuerry1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Terminal.DataSet1();
             this.userQuerry1TableAdapter = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
-            this.label_check = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userQuerry1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
@@ -62,14 +64,49 @@
             // 
             // comboBox_num
             // 
-            this.comboBox_num.DataSource = this.userQuerry1BindingSource;
-            this.comboBox_num.DisplayMember = "CarNumber";
             this.comboBox_num.FormattingEnabled = true;
             this.comboBox_num.Location = new System.Drawing.Point(145, 65);
             this.comboBox_num.Name = "comboBox_num";
-            this.comboBox_num.Size = new System.Drawing.Size(143, 21);
+            this.comboBox_num.Size = new System.Drawing.Size(119, 21);
             this.comboBox_num.TabIndex = 3;
             this.comboBox_num.SelectedIndexChanged += new System.EventHandler(this.comboBox_num_SelectedIndexChanged);
+            // 
+            // label_check
+            // 
+            this.label_check.AutoSize = true;
+            this.label_check.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_check.Location = new System.Drawing.Point(115, 34);
+            this.label_check.Name = "label_check";
+            this.label_check.Size = new System.Drawing.Size(0, 15);
+            this.label_check.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(36, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 15);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Состояние:";
+            // 
+            // button_refresh
+            // 
+            this.button_refresh.BackColor = System.Drawing.SystemColors.Control;
+            this.button_refresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_refresh.BackgroundImage")));
+            this.button_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_refresh.CausesValidation = false;
+            this.button_refresh.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button_refresh.FlatAppearance.BorderSize = 0;
+            this.button_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_refresh.ForeColor = System.Drawing.SystemColors.Control;
+            this.button_refresh.Location = new System.Drawing.Point(270, 65);
+            this.button_refresh.Name = "button_refresh";
+            this.button_refresh.Size = new System.Drawing.Size(22, 22);
+            this.button_refresh.TabIndex = 6;
+            this.button_refresh.UseVisualStyleBackColor = false;
+            this.button_refresh.Click += new System.EventHandler(this.button_refresh_Click);
             // 
             // userQuerry1BindingSource
             // 
@@ -85,31 +122,12 @@
             // 
             this.userQuerry1TableAdapter.ClearBeforeFill = true;
             // 
-            // label_check
-            // 
-            this.label_check.AutoSize = true;
-            this.label_check.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_check.Location = new System.Drawing.Point(115, 34);
-            this.label_check.Name = "label_check";
-            this.label_check.Size = new System.Drawing.Size(94, 15);
-            this.label_check.TabIndex = 4;
-            this.label_check.Text = "на территории";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(36, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Состояние:";
-            // 
             // Form_close
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 201);
+            this.Controls.Add(this.button_refresh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_check);
             this.Controls.Add(this.comboBox_num);
@@ -140,5 +158,6 @@
         private DataSet1TableAdapters.UserQuerry1TableAdapter userQuerry1TableAdapter;
         private System.Windows.Forms.Label label_check;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button_refresh;
     }
 }

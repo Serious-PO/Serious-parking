@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Database1ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Database1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Terminal.Properties.Settings.GlobalReference.Default.Database1ConnectionString" Provider="Microsoft.SqlServerCe.Client.3.5" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Database1ConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="Database1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Terminal.Properties.Settings.GlobalReference.Default.Database1ConnectionString" Provider="Microsoft.SqlServerCe.Client.3.5" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserQuerry1TableAdapter" GeneratorDataComponentClassName="UserQuerry1TableAdapter" Name="UserQuerry1" UserDataComponentName="UserQuerry1TableAdapter">
@@ -89,7 +89,7 @@ VALUES        (@p1,@p2,@p3,@p4,@p5,@p6,@p7)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="UserQuerry" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillBy">
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="UserQuerry" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT [FirstName], [LastName], [BirthDay], [Balance], [CarNumber], [TelephoneNumber], [LastEnter], [LastQuit], [OnParking] FROM [UserQuerry]</CommandText>
@@ -97,7 +97,7 @@ VALUES        (@p1,@p2,@p3,@p4,@p5,@p6,@p7)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateBalance" Modifier="Public" Name="updateBalance" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="updateBalance">
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateBalance" Modifier="Public" Name="updateBalance" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="updateBalance">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       UserQuerry
@@ -110,7 +110,7 @@ WHERE        (CarNumber = @p9)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateParking" Modifier="Public" Name="updateParking" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="updateParking">
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateParking" Modifier="Public" Name="updateParking" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="updateParking">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       UserQuerry
@@ -123,7 +123,7 @@ WHERE        (CarNumber = @p2)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateTimeEnter" Modifier="Public" Name="updateTimeEnter" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="updateTimeEnter">
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateTimeEnter" Modifier="Public" Name="updateTimeEnter" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="updateTimeEnter">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       UserQuerry
@@ -136,7 +136,7 @@ WHERE        (CarNumber = @p9)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateTimeQuit" Modifier="Public" Name="updateTimeQuit" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="updateTimeQuit">
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="updateTimeQuit" Modifier="Public" Name="updateTimeQuit" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="updateTimeQuit">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       UserQuerry
@@ -159,7 +159,7 @@ WHERE        (CarNumber = @p9)</CommandText>
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="UserQuerry1" msprop:Generator_TableClassName="UserQuerry1DataTable" msprop:Generator_TableVarName="tableUserQuerry1" msprop:Generator_RowChangedName="UserQuerry1RowChanged" msprop:Generator_TablePropName="UserQuerry1" msprop:Generator_RowDeletingName="UserQuerry1RowDeleting" msprop:Generator_RowChangingName="UserQuerry1RowChanging" msprop:Generator_RowEvHandlerName="UserQuerry1RowChangeEventHandler" msprop:Generator_RowDeletedName="UserQuerry1RowDeleted" msprop:Generator_RowClassName="UserQuerry1Row" msprop:Generator_UserTableName="UserQuerry1" msprop:Generator_RowEvArgName="UserQuerry1RowChangeEvent">
+        <xs:element name="UserQuerry1" msprop:Generator_TableClassName="UserQuerry1DataTable" msprop:Generator_TableVarName="tableUserQuerry1" msprop:Generator_TablePropName="UserQuerry1" msprop:Generator_RowDeletingName="UserQuerry1RowDeleting" msprop:Generator_RowChangingName="UserQuerry1RowChanging" msprop:Generator_RowEvHandlerName="UserQuerry1RowChangeEventHandler" msprop:Generator_RowDeletedName="UserQuerry1RowDeleted" msprop:Generator_UserTableName="UserQuerry1" msprop:Generator_RowChangedName="UserQuerry1RowChanged" msprop:Generator_RowEvArgName="UserQuerry1RowChangeEvent" msprop:Generator_RowClassName="UserQuerry1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
