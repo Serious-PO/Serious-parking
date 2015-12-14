@@ -39,8 +39,10 @@
             this.userQuerry1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new Terminal.DataSet1();
             this.userQuerry1TableAdapter = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
+            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.userQuerry1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_close
@@ -122,6 +124,12 @@
             // 
             this.userQuerry1TableAdapter.ClearBeforeFill = true;
             // 
+            // visualStyler1
+            // 
+            this.visualStyler1.HostForm = this;
+            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
+            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
+            // 
             // Form_close
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +151,7 @@
             this.Load += new System.EventHandler(this.Form_close_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userQuerry1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +159,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button_close;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_num;
         private DataSet1 dataSet1;
@@ -159,5 +167,7 @@
         private System.Windows.Forms.Label label_check;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button_refresh;
+        private System.Windows.Forms.Button button_close;
+        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }

@@ -36,12 +36,12 @@ namespace Terminal
             String carNumber = textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text;
                 for (int i = 0; i < user.GetData().Rows.Count; i++)
                 {
-                    if ((user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text)) && (Double.Parse(textBox_money.Text.ToString()) > 0))
+                   num_row = i;
+                   tryBox();
+                   if ((tryBlnc == true) && (tryNumb == true))
                     {
-                        num_row = i;
-                        tryBox();
-                        if ((tryBlnc == true) && (tryNumb == true))
-                        {
+                    if ((user.GetData().Rows[i]["CarNumber"].ToString() == carNumber) && (Double.Parse(textBox_money.Text.ToString()) > 0))
+                    {
                             DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (vibor2 == DialogResult.Yes)
                             {
@@ -66,6 +66,12 @@ namespace Terminal
                                 MessageBox.Show("Такого пользователя не существует!");
                         }
                     }
+                   else
+                   {
+                       if (i == (user.GetData().Rows.Count - 1))
+                           MessageBox.Show("Такого пользователя не существует!");
+                       break;
+                   }
 
                 }
         }
@@ -105,7 +111,6 @@ namespace Terminal
             String tryNum;
             try
             {
-                double blnc = double.Parse(user.GetData().Rows[num_row]["Balance"].ToString());
                 double new_blnc;
                 new_blnc = Double.Parse(textBox_money.Text);
                 if (new_blnc > 0)
@@ -115,11 +120,27 @@ namespace Terminal
                     tryBlnc = false;
                     MessageBox.Show("Баланс не может быть отрицательным!");
                 }
-                if ((new_blnc + blnc) > 1000000)
-                {
-                    tryBlnc = false;
-                    MessageBox.Show("Баланс не может быть больше 1.000.000 руб!");
-                    MessageBox.Show("Текущий баланс: " + blnc + " руб");
+                for (int i = 0; i < user.GetData().Rows.Count; i++)
+                 {
+                        if ((user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text)))
+                        {
+                            double blnc = double.Parse(user.GetData().Rows[i]["Balance"].ToString());
+                            double diff_blnc = 1000000 - blnc;
+                            if ((new_blnc + blnc) > 1000000)
+                            {
+                                tryBlnc = false;
+                                MessageBox.Show("Баланс не может быть больше 1.000.000 руб!");
+                                if (diff_blnc > 0)
+                                {
+                                 MessageBox.Show("Текущий баланс: " + blnc + " руб \n Возможно пополнение на " + diff_blnc + " руб!");
+                                }
+                            else
+                            {
+                                MessageBox.Show("Текущий баланс: " + blnc + " руб");
+                            }
+                        }
+                    }
+                    
                 }
             }
             catch

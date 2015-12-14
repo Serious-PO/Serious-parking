@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_change_price));
             this.label_price = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.textBox_price = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_price
@@ -59,7 +63,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(143, 20);
-            this.textBox_password.TabIndex = 2;
+            this.textBox_password.TabIndex = 1;
             this.textBox_password.TextChanged += new System.EventHandler(this.textBox_password_TextChanged);
             // 
             // textBox_price
@@ -67,7 +71,7 @@
             this.textBox_price.Location = new System.Drawing.Point(140, 77);
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(143, 20);
-            this.textBox_price.TabIndex = 3;
+            this.textBox_price.TabIndex = 2;
             this.textBox_price.TextChanged += new System.EventHandler(this.textBox_price_TextChanged);
             this.textBox_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_change_price_KeyPress);
             // 
@@ -76,10 +80,16 @@
             this.button1.Location = new System.Drawing.Point(115, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 33);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Применить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // visualStyler1
+            // 
+            this.visualStyler1.HostForm = this;
+            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
+            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
             // 
             // Form_change_price
             // 
@@ -97,6 +107,7 @@
             this.Name = "Form_change_price";
             this.Text = "Form_change_price";
             this.Load += new System.EventHandler(this.Form_change_price_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +120,6 @@
         public System.Windows.Forms.TextBox textBox_password;
         public System.Windows.Forms.TextBox textBox_price;
         public System.Windows.Forms.Button button1;
+        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }
