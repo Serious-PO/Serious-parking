@@ -34,46 +34,27 @@ namespace Terminal
         private void button1_Click(object sender, EventArgs e)
         {
             String carNumber = textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text;
-                for (int i = 0; i < user.GetData().Rows.Count; i++)
-                {
-                   num_row = i;
                    tryBox();
-                   if ((tryBlnc == true) && (tryNumb == true))
-                    {
-                    if ((user.GetData().Rows[i]["CarNumber"].ToString() == carNumber) && (Double.Parse(textBox_money.Text.ToString()) > 0))
-                    {
-                            DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (vibor2 == DialogResult.Yes)
-                            {
-                                user.updateBalance((double.Parse(user.GetData().Rows[i]["Balance"].ToString()) +
-                                double.Parse(textBox_money.Text.ToString())), carNumber);
-                                MessageBox.Show("Баланс пополнен!");
-                                textBox_carNumber1.Text = "";
-                                textBox_carNumber2.Text = "";
-                                textBox_carNumber3.Text = "";
-                                textBox_money.Text = "";
-                                break;
-                            }
-                            if (vibor2 == DialogResult.No)
-                            {
-                                break;
-                            }
 
-                        }
-                        else
-                        {
-                            if (i == (user.GetData().Rows.Count - 1))
-                                MessageBox.Show("Такого пользователя не существует!");
-                        }
-                    }
-                   else
-                   {
-                       if (i == (user.GetData().Rows.Count - 1))
-                           MessageBox.Show("Такого пользователя не существует!");
-                       break;
-                   }
+                       if ((tryBlnc == true) && (tryNumb == true))
+                       {
+                           DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                           if (vibor2 == DialogResult.Yes)
+                           {
+                               user.updateBalance((double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()) +
+                               double.Parse(textBox_money.Text.ToString())), carNumber);
+                               MessageBox.Show("Баланс пополнен!");
+                               textBox_carNumber1.Text = "";
+                               textBox_carNumber2.Text = "";
+                               textBox_carNumber3.Text = "";
+                               textBox_money.Text = "";
+                           }
+                           if (vibor2 == DialogResult.No)
+                           {
+                           }
 
-                }
+                       }
+                   
         }
 
         private void textBox_money_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,44 +90,30 @@ namespace Terminal
         private void tryBox()
         {
             String tryNum;
+            num_row = -1;
+            double new_blnc=0;
             try
             {
-                double new_blnc;
                 new_blnc = Double.Parse(textBox_money.Text);
                 if (new_blnc > 0)
+                {
                     tryBlnc = true;
+                }
                 if (new_blnc<0)
                 {
                     tryBlnc = false;
-                    MessageBox.Show("Баланс не может быть отрицательным!");
+                    MessageBox.Show("Баланс не может быть отрицательным");
                 }
-                for (int i = 0; i < user.GetData().Rows.Count; i++)
-                 {
-                        if ((user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text)))
-                        {
-                            double blnc = double.Parse(user.GetData().Rows[i]["Balance"].ToString());
-                            double diff_blnc = 1000000 - blnc;
-                            if ((new_blnc + blnc) > 1000000)
-                            {
-                                tryBlnc = false;
-                                MessageBox.Show("Баланс не может быть больше 1.000.000 руб!");
-                                if (diff_blnc > 0)
-                                {
-                                 MessageBox.Show("Текущий баланс: " + blnc + " руб \n Возможно пополнение на " + diff_blnc + " руб!");
-                                }
-                            else
-                            {
-                                MessageBox.Show("Текущий баланс: " + blnc + " руб");
-                            }
-                        }
-                    }
-                    
+                if (new_blnc == 0)
+                {
+                    tryBlnc = false;
+                    MessageBox.Show("Невозможно пополнить баланс на 0 руб");
                 }
             }
             catch
             {
                 tryBlnc = false;
-                MessageBox.Show("Заполните поле оплаты!");
+                MessageBox.Show("Заполните поле оплаты");
             }
 
 
@@ -154,7 +121,7 @@ namespace Terminal
             if ((tryNum.Length > 1) || (tryNum.Length < 1))
             {
                 tryNumb = false;
-                MessageBox.Show("Неверный формат номера автомобиля!");
+                MessageBox.Show("Неверный формат номера автомобиля");
             }
             else
             {
@@ -162,7 +129,7 @@ namespace Terminal
                 if ((tryNum.Length > 3) || (tryNum.Length < 3))
                 {
                     tryNumb = false;
-                    MessageBox.Show("Неверный формат номера автомобиля!");
+                    MessageBox.Show("Неверный формат номера автомобиля");
                 }
                 else
                 {
@@ -170,12 +137,47 @@ namespace Terminal
                     if ((tryNum.Length > 2) || (tryNum.Length < 2))
                     {
                         tryNumb = false;
-                        MessageBox.Show("Неверный формат номера автомобиля!");
+                        MessageBox.Show("Неверный формат номера автомобиля");
                         
                     }
                     else
                         tryNumb = true;
                 }
+            }
+            if ((tryBlnc == true) && (tryNumb == true))
+            {
+                    for (int i = 0; i < user.GetData().Rows.Count; i++)
+                    {
+                        if ((user.GetData().Rows[i]["CarNumber"].ToString() == (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text)))
+                        {
+                            num_row = i;
+                            double blnc = double.Parse(user.GetData().Rows[i]["Balance"].ToString());
+                            double diff_blnc = 1000000 - blnc;
+                            if ((new_blnc + blnc) > 1000000)
+                            {
+                                tryBlnc = false;
+                                if (diff_blnc > 0)
+                                {
+                                    MessageBox.Show("Баланс не может быть больше 1.000.000 руб \n\nТекущий баланс: " + blnc + " руб \n\nВозможно пополнение на " + diff_blnc + " руб");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Баланс не может быть больше 1.000.000 руб \n\nТекущий баланс: " + blnc + " руб");
+                                }
+                            }
+                            else
+                            {
+                                tryBlnc = true;
+                            }
+                            break;
+                        }
+                    }
+                    if (num_row < 0)
+                    {
+                        tryBlnc = false;
+                        MessageBox.Show("Такого пользователя не существует.");
+                    }
+
             }
         }
 
