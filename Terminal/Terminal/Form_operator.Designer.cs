@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_operator));
             this.label_name = new System.Windows.Forms.Label();
             this.label_money = new System.Windows.Forms.Label();
             this.button_apply_balance = new System.Windows.Forms.Button();
@@ -39,8 +37,6 @@
             this.textBox_carNumber2 = new System.Windows.Forms.TextBox();
             this.textBox_carNumber1 = new System.Windows.Forms.TextBox();
             this.textBox_money = new System.Windows.Forms.TextBox();
-            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_name
@@ -124,12 +120,6 @@
             this.textBox_money.TabIndex = 4;
             this.textBox_money.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_money_KeyPress);
             // 
-            // visualStyler1
-            // 
-            this.visualStyler1.HostForm = this;
-            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
-            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
-            // 
             // Form_operator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,7 +141,6 @@
             this.Text = "Окно для оператора";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_operator_FormClosed);
             this.Load += new System.EventHandler(this.Form_operator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,7 +157,6 @@
         public System.Windows.Forms.TextBox textBox_carNumber2;
         public System.Windows.Forms.TextBox textBox_carNumber1;
         public System.Windows.Forms.TextBox textBox_money;
-        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }
 

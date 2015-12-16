@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_add_user));
             this.textBox_last_name = new System.Windows.Forms.TextBox();
             this.textBox_first_name = new System.Windows.Forms.TextBox();
             this.button_apply = new System.Windows.Forms.Button();
@@ -45,8 +43,6 @@
             this.textBox_carNumber1 = new System.Windows.Forms.TextBox();
             this.textBox_carNumber2 = new System.Windows.Forms.TextBox();
             this.textBox_carNumber3 = new System.Windows.Forms.TextBox();
-            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_last_name
@@ -176,12 +172,6 @@
             this.textBox_carNumber3.TabIndex = 7;
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
-            // visualStyler1
-            // 
-            this.visualStyler1.HostForm = this;
-            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
-            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
-            // 
             // Form_add_user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,7 +198,6 @@
             this.Name = "Form_add_user";
             this.Text = "Добавление нового пользователя";
             this.Load += new System.EventHandler(this.Form_add_user_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,6 +220,5 @@
         public System.Windows.Forms.TextBox textBox_carNumber1;
         public System.Windows.Forms.TextBox textBox_carNumber2;
         public System.Windows.Forms.TextBox textBox_carNumber3;
-        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }

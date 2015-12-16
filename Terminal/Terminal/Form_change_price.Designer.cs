@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_change_price));
             this.label_price = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.textBox_price = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_price
@@ -85,12 +81,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // visualStyler1
-            // 
-            this.visualStyler1.HostForm = this;
-            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
-            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
-            // 
             // Form_change_price
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,7 +97,6 @@
             this.Name = "Form_change_price";
             this.Text = "Form_change_price";
             this.Load += new System.EventHandler(this.Form_change_price_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,6 +109,5 @@
         public System.Windows.Forms.TextBox textBox_password;
         public System.Windows.Forms.TextBox textBox_price;
         public System.Windows.Forms.Button button1;
-        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }
