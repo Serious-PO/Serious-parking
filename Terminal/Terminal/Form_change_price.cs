@@ -14,11 +14,20 @@ namespace Terminal
     public partial class Form_change_price : Form
     {
         private Test test;
-        
+        Form_operator form_operator;
         private bool tryPrice;
         public Form_change_price()
         {
+            form_operator = new Form_operator();
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
         }
 
         private void textBox_password_TextChanged(object sender, EventArgs e)
@@ -82,8 +91,8 @@ namespace Terminal
 
         private void Form_change_price_Load(object sender, EventArgs e)
         {
-            
-            
+
+            this.Location = new Point((form_operator.screen.X / 2) - (this.Width / 2), (form_operator.screen.Y / 2) - (this.Height / 2));
             test = new Test(this);
         }
 

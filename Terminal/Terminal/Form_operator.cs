@@ -11,6 +11,7 @@ namespace Terminal
 {
     public partial class Form_operator : Form
     {
+        public Point screen = new Point();
         private bool tryNumb;
         private bool tryBlnc;
         Form_add_user form_add_user;
@@ -22,12 +23,18 @@ namespace Terminal
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
         public Form_operator()
         {
-            form2 = new Form_car_number(this);
-            form2.Show();
-            formC = new Form_close(this);
-            formC.Show();
+            screen.X=Screen.PrimaryScreen.Bounds.Width;
+            screen.Y = Screen.PrimaryScreen.Bounds.Height;
             user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
 
         }
 
@@ -65,10 +72,6 @@ namespace Terminal
             
         }
 
-        private void label_money_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button_add_user_Click(object sender, EventArgs e)
         {
@@ -85,6 +88,11 @@ namespace Terminal
         private void Form_operator_Load(object sender, EventArgs e)
         {
             test = new Test(this);
+            this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
+            form2 = new Form_car_number(this);
+            form2.Show();
+            formC = new Form_close(this);
+            formC.Show();
         }
 
         private void tryBox()
@@ -231,5 +239,29 @@ namespace Terminal
         {
             Application.Exit();
         }
+
+        private void Form_operator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Выйти из программы?", "Выход",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            == DialogResult.Yes)
+                e.Cancel = false;
+            else
+                e.Cancel = true;  
+        }
+
+        private void label_name_Click(object sender, EventArgs e)
+        {
+            form2 = new Form_car_number(this);
+            form2.Show();
+
+        }
+        private void label_money_Click(object sender, EventArgs e)
+        {
+
+            formC = new Form_close(this);
+            formC.Show();
+        }
+   
     }
 }

@@ -20,6 +20,14 @@ namespace Terminal
         {
             frm = f;
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
             
         }
 
@@ -59,7 +67,6 @@ namespace Terminal
         }
         public void update_box()
         {
-
             comboBox_num.Items.Clear();
             for (int i = 0; i < user.GetData().Rows.Count; i++)
             {
@@ -94,6 +101,7 @@ namespace Terminal
             update_box();
             new_lable();
             this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
+            this.Location = new Point((frm.Location.X) + (frm.Width)+10, (frm.Location.Y)+(frm.Height)-this.Height);
 
         }
 
@@ -105,6 +113,12 @@ namespace Terminal
         private void button_refresh_Click(object sender, EventArgs e)
         {
             update_box();
+            new_lable();
+        }
+
+        private void Form_close_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          
         }
     }
 }

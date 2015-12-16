@@ -139,6 +139,7 @@
             this.Name = "Form_close";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выезд";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_close_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_close_Closed);
             this.Load += new System.EventHandler(this.Form_close_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userQuerry1BindingSource)).EndInit();

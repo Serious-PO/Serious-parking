@@ -197,6 +197,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_add_user";
             this.Text = "Добавление нового пользователя";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_add_user_FormClosed);
             this.Load += new System.EventHandler(this.Form_add_user_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

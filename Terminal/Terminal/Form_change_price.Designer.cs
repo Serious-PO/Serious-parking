@@ -95,7 +95,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_change_price";
-            this.Text = "Form_change_price";
+            this.Text = "Изменить цену";
             this.Load += new System.EventHandler(this.Form_change_price_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

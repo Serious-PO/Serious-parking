@@ -21,11 +21,21 @@ namespace Terminal
         bool isNumeric = true;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
         DataSet1 dataNew;
+        Form_operator form_opreator;
         public Form_add_user()
         {
+            form_opreator = new Form_operator();
             user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
             dataNew = new DataSet1();
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
             
         }
 
@@ -217,7 +227,14 @@ namespace Terminal
 
         private void Form_add_user_Load(object sender, EventArgs e)
         {
+            this.Location = new Point((form_opreator.screen.X / 2) - (this.Width / 2), (form_opreator.screen.Y / 2) - (this.Height / 2)-20);
              test = new Test(this);
         }
+
+        private void Form_add_user_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
+
     }
 }

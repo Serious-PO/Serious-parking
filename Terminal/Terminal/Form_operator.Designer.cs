@@ -47,6 +47,7 @@
             this.label_name.Size = new System.Drawing.Size(132, 13);
             this.label_name.TabIndex = 2;
             this.label_name.Text = "Введите номер машины:";
+            this.label_name.Click += new System.EventHandler(this.label_name_Click);
             // 
             // label_money
             // 
@@ -139,7 +140,7 @@
             this.Name = "Form_operator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Окно для оператора";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_operator_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_operator_FormClosing);
             this.Load += new System.EventHandler(this.Form_operator_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

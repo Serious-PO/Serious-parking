@@ -22,6 +22,7 @@ namespace Terminal
             label_no.ForeColor = Color.Red;
             label_no.Font = new Font("label_no", 30);
             lab = tryS;
+
         }
         public Form_Error(Form_close f, string tryS)
         {
@@ -30,6 +31,14 @@ namespace Terminal
             label_no.ForeColor = Color.Red;
             label_no.Font = new Font("label_no", 30);
             lab = tryS;
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
         }
         private void label_no_Click(object sender, EventArgs e)
         {
