@@ -12,6 +12,7 @@ namespace Terminal
     public partial class Form_close : Form
     {
         DataSet1TableAdapters.UserQuerryTableAdapter user;
+        Form_Error form_error;
         Form_final form_final;
         Form1 frm;
         public Form_close(Form1 f)
@@ -24,13 +25,26 @@ namespace Terminal
 
         private void button_close_Click(object sender, EventArgs e)
         {
-           
-                user.updateTimeQuit(DateTime.Now, textBox1.Text.ToString());
-                form_final = new Form_final(this,frm);
-                form_final.Show();
-                this.Close();
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
+                if (number() == user.GetData().Rows[i]["CarNumber"].ToString())
+                {
+                    //if (user.GetData().Rows[i]["OnParking"].ToString() == true.ToString())
+                    //{
+                        user.updateTimeQuit(DateTime.Now, textBox1.Text.ToString());
+                        form_final = new Form_final(this, frm);
+                        form_final.Show();
+                    }
+                    else
+                    {
+                        form_error = new Form_Error(this, "Въезд");
+                        form_error.Show();
+                    }
+                }
+            }
+                
             
-        }
+        
         public string number()
         {
             return textBox1.Text;
@@ -38,6 +52,11 @@ namespace Terminal
         private void Form_close_Closed(object sender, FormClosedEventArgs e)
         {
            
+        }
+
+        private void Form_close_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

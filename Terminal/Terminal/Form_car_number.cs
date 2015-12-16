@@ -38,16 +38,16 @@ namespace Terminal
                     {
                         form_open = new Form_open(this,frm);
                         form_open.Show();
-                        this.Close();
+                        
                         user.updateTimeEnter(DateTime.Now, textBox1.Text.ToString());
                         break;
                     }
                 }
                 if (i == (user.GetData().Rows.Count - 1))
                 {
-                    form_error = new Form_Error(this);
+                    form_error = new Form_Error(this, "Въезд");
                     form_error.Show();
-                    this.Hide();
+                    
                 }
             }
         }

@@ -18,9 +18,10 @@ namespace classUsers
         private DateTime lastQuit;
         private static double price;
 
+     
         public User()
         {
-
+            price = double.Parse(ConfigurationSettings.AppSettings["Price"]); 
         }
         public User(String fN,String lN,DateTime bD,Int64 b,String cN,String tN,DateTime lE,DateTime lQ)
         {
@@ -62,6 +63,10 @@ namespace classUsers
         private void changeBalance()
         {
             balance-=getChangesInBalance();
+        }
+        public double getPrice()
+        {
+            return price;
         }
     }
 }

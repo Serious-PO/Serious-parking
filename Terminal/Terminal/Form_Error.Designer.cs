@@ -68,6 +68,7 @@
             this.Name = "Form_Error";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Error_Closed);
+            this.Load += new System.EventHandler(this.Form_Error_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
