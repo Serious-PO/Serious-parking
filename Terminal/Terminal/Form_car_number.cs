@@ -12,15 +12,24 @@ namespace Terminal
     public partial class Form_car_number : Form
     {
 
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
         Form_open form_open;
         Form_Error form_error;
-        Form1 frm;
-        public Form_car_number(Form1 f)
+        Form_close form_close;
+        Form_operator frm;
+        private bool check;
+        public Form_car_number(Form_operator f)
         {
-            user = new Terminal.DataSet1TableAdapters.UserQuerryTableAdapter();
             frm = f;
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
             
             
             
@@ -28,37 +37,60 @@ namespace Terminal
 
         private void button_car_Click(object sender, EventArgs e)
         {
-            
+            check = false;
             for (int i = 0; i < user.GetData().Rows.Count; i++)
             {
-                if ((textBox1.Text.ToString() == user.GetData().Rows[i]["CarNumber"].ToString()))
+                if ((number() == user.GetData().Rows[i]["CarNumber"].ToString()))
                 {
-                    if(user.GetData().Rows[i]["Balance"]!=null)
-                    if (double.Parse(user.GetData().Rows[i]["Balance"].ToString()) > 0)
+                    check = true;
+                    if ((double.Parse(user.GetData().Rows[i]["Balance"].ToString()) > 0) && (user.GetData().Rows[i]["OnParking"].ToString() == false.ToString()))
                     {
-                        form_open = new Form_open(this,frm);
+                        user.updateTimeEnter(DateTime.Now, comboBox_num.Text.ToString());
+                        form_open = new Form_open(this, frm);
                         form_open.Show();
-                        
-                        user.updateTimeEnter(DateTime.Now, textBox1.Text.ToString());
-                        break;
+                    }
+                    else
+                    {
+                        form_error = new Form_Error(this, "Въезд");
+                        form_error.Show();
                     }
                 }
-                if (i == (user.GetData().Rows.Count - 1))
-                {
-                    form_error = new Form_Error(this, "Въезд");
-                    form_error.Show();
-                    
-                }
+            }
+            if (check == false)
+            {
+                form_error = new Form_Error(this, "Въезд");
+                form_error.Show();
+                new_lable();
             }
         }
 
         public string number()
         {
-            return textBox1.Text;
+            return comboBox_num.Text;
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void update_box()
         {
+            comboBox_num.Items.Clear();
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
+                comboBox_num.Items.Add(user.GetData().Rows[i]["CarNumber"].ToString());
+            }
+        }
+        public void new_lable()
+        {
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+            {
+                label_check.Text = "вне территории";
+                if (number() == user.GetData().Rows[i]["CarNumber"].ToString())
+                {
+                    if (user.GetData().Rows[i]["OnParking"].ToString() == true.ToString())
+                    {
+                        label_check.Text = "на территории";
+                        break;
+                    }
+                }
 
+            }
         }
         private void Form_car_number_FormClosed(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -67,12 +99,32 @@ namespace Terminal
 
         private void Form_car_number_Load(object sender, EventArgs e)
         {
-
+            user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
+            update_box();
+            new_lable();
+            this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
+            this.Location = new Point((frm.Location.X)+(frm.Width)+10, (frm.Location.Y));
         }
 
-        private void Form_car_number_Closed(object sender, FormClosedEventArgs e)
+        private void button_refresh_Click(object sender, EventArgs e)
+        {
+            new_lable();
+            update_box();
+        }
+
+        private void comboBox_num_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            new_lable();
+        }
+
+        private void Form_car_number_FormClosing(object sender, FormClosingEventArgs e)
         {
             
+        }
+
+        private void Form_car_number_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
         }
 
     }

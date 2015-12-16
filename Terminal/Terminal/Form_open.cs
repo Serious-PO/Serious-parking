@@ -12,13 +12,13 @@ namespace Terminal
 {
     public partial class Form_open : Form
     {
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
         
         private Form_car_number frm;
-        Form1 frm1;
-        public Form_open(Form_car_number f,Form1 f1)
+        Form_operator frm1;
+        public Form_open(Form_car_number f,Form_operator f1)
         {
-            user = new Terminal.DataSet1TableAdapters.UserQuerryTableAdapter();
+            user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             frm = f;
             frm1 = f1;
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace Terminal
                     user.updateTimeEnter(DateTime.Now, frm.number());
                     label_balance.Text = "На вашем счете: " + user.GetData().Rows[i]["Balance"].ToString() + " \nМаксимальное время парковки: "
                         + (Int32.Parse(user.GetData().Rows[i]["Balance"].ToString())/(int)first.getPrice()).ToString() + " мин";
-                    user.UpdateParking(true, frm.number());
+                    user.updateParking(true, frm.number());
                 }
             }
             label_name.Location = new Point((640 - (label_name.Width / 2)), 438);

@@ -19,12 +19,23 @@ namespace Terminal
         private bool tryAdd = true;
         private int n;
         bool isNumeric = true;
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
+        DataSet1 dataNew;
+        Form_operator form_opreator;
         public Form_add_user()
         {
-            
-            user = new DataSet1TableAdapters.UserQuerryTableAdapter();
+            form_opreator = new Form_operator();
+            user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
+            dataNew = new DataSet1();
             InitializeComponent();
+            Opacity = 0;
+            Timer timer = new Timer();
+            timer.Tick += new EventHandler((sender, e) =>
+            {
+                if ((Opacity += 0.08d) == 1) timer.Stop();
+            });
+            timer.Interval = 5;
+            timer.Start();
             
         }
 
@@ -50,8 +61,9 @@ namespace Terminal
                         MessageBox.Show("Пользователь добавлен!");
                         user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
                             inBox, 100,
-                        (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), inBox,false);
-
+                        (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), false);
+                        user.Update(dataNew);
+                        dataNew.AcceptChanges();
 
 
                     }
@@ -72,7 +84,7 @@ namespace Terminal
                     MessageBox.Show("Пользователь добавлен!");
                     user.addNewClient(textBox_first_name.Text.ToString(), textBox_last_name.Text.ToString(),
                         inBox, 100,
-                    (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), inBox,false);
+                    (textBox_carNumber1.Text + textBox_carNumber2.Text + textBox_carNumber3.Text), text_telephone.Text.ToString(), false);
 
                 }
             }
@@ -97,7 +109,20 @@ namespace Terminal
         private void textBox_carNumber3_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'A') || (tryKey > 'Z'))&&tryKey!='\b')
+            if ( ((tryKey == 'А')
+                | (tryKey == 'В')
+                | (tryKey == 'Е')
+                | (tryKey == 'К')
+                | (tryKey == 'М')
+                | (tryKey == 'Н')
+                | (tryKey == 'О')
+                | (tryKey == 'Р')
+                | (tryKey == 'С')
+                | (tryKey == 'Т')
+                | (tryKey == 'У')
+                | (tryKey == 'Х')
+                ) | tryKey == '\b') return;
+            else
                 e.Handled = true;
         }
         private void textBox_carNumber2_KeyPress(object sender, KeyPressEventArgs e)
@@ -108,7 +133,20 @@ namespace Terminal
         private void textBox_carNumber1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char tryKey = e.KeyChar;
-            if (((tryKey < 'A') || (tryKey > 'Z')) && tryKey != '\b')
+            if ( ((tryKey == 'А')
+                | (tryKey == 'В')
+                | (tryKey == 'Е')
+                | (tryKey == 'К')
+                | (tryKey == 'М')
+                | (tryKey == 'Н')
+                | (tryKey == 'О')
+                | (tryKey == 'Р')
+                | (tryKey == 'С')
+                | (tryKey == 'Т')
+                | (tryKey == 'У')
+                | (tryKey == 'Х')
+                ) | tryKey == '\b') return;
+            else
                 e.Handled = true;
         }
        
@@ -189,7 +227,14 @@ namespace Terminal
 
         private void Form_add_user_Load(object sender, EventArgs e)
         {
+            this.Location = new Point((form_opreator.screen.X / 2) - (this.Width / 2), (form_opreator.screen.Y / 2) - (this.Height / 2)-20);
              test = new Test(this);
         }
+
+        private void Form_add_user_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
+
     }
 }

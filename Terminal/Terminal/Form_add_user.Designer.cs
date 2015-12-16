@@ -64,7 +64,7 @@
             this.button_apply.Location = new System.Drawing.Point(259, 317);
             this.button_apply.Name = "button_apply";
             this.button_apply.Size = new System.Drawing.Size(148, 35);
-            this.button_apply.TabIndex = 4;
+            this.button_apply.TabIndex = 9;
             this.button_apply.Text = "Добавить пользователя";
             this.button_apply.UseVisualStyleBackColor = true;
             this.button_apply.Click += new System.EventHandler(this.button_apply_Click);
@@ -119,7 +119,7 @@
             this.text_telephone.Location = new System.Drawing.Point(259, 276);
             this.text_telephone.Name = "text_telephone";
             this.text_telephone.Size = new System.Drawing.Size(148, 20);
-            this.text_telephone.TabIndex = 9;
+            this.text_telephone.TabIndex = 8;
             this.text_telephone.Text = "89051234566";
             this.text_telephone.TextChanged += new System.EventHandler(this.text_telephone_TextChanged);
             this.text_telephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_telephone_press);
@@ -129,7 +129,7 @@
             this.textBox_year.Location = new System.Drawing.Point(343, 182);
             this.textBox_year.Name = "textBox_year";
             this.textBox_year.Size = new System.Drawing.Size(64, 20);
-            this.textBox_year.TabIndex = 11;
+            this.textBox_year.TabIndex = 4;
             this.textBox_year.Text = "1990";
             // 
             // textBox_month
@@ -137,7 +137,7 @@
             this.textBox_month.Location = new System.Drawing.Point(300, 182);
             this.textBox_month.Name = "textBox_month";
             this.textBox_month.Size = new System.Drawing.Size(37, 20);
-            this.textBox_month.TabIndex = 12;
+            this.textBox_month.TabIndex = 3;
             this.textBox_month.Text = "01";
             // 
             // textBox_day
@@ -145,7 +145,7 @@
             this.textBox_day.Location = new System.Drawing.Point(259, 182);
             this.textBox_day.Name = "textBox_day";
             this.textBox_day.Size = new System.Drawing.Size(35, 20);
-            this.textBox_day.TabIndex = 13;
+            this.textBox_day.TabIndex = 2;
             this.textBox_day.Text = "01";
             // 
             // textBox_carNumber1
@@ -153,7 +153,7 @@
             this.textBox_carNumber1.Location = new System.Drawing.Point(259, 231);
             this.textBox_carNumber1.Name = "textBox_carNumber1";
             this.textBox_carNumber1.Size = new System.Drawing.Size(24, 20);
-            this.textBox_carNumber1.TabIndex = 14;
+            this.textBox_carNumber1.TabIndex = 5;
             this.textBox_carNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber1_KeyPress);
             // 
             // textBox_carNumber2
@@ -161,7 +161,7 @@
             this.textBox_carNumber2.Location = new System.Drawing.Point(289, 231);
             this.textBox_carNumber2.Name = "textBox_carNumber2";
             this.textBox_carNumber2.Size = new System.Drawing.Size(69, 20);
-            this.textBox_carNumber2.TabIndex = 15;
+            this.textBox_carNumber2.TabIndex = 6;
             this.textBox_carNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber2_KeyPress);
             // 
             // textBox_carNumber3
@@ -169,7 +169,7 @@
             this.textBox_carNumber3.Location = new System.Drawing.Point(364, 231);
             this.textBox_carNumber3.Name = "textBox_carNumber3";
             this.textBox_carNumber3.Size = new System.Drawing.Size(43, 20);
-            this.textBox_carNumber3.TabIndex = 16;
+            this.textBox_carNumber3.TabIndex = 7;
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
             // Form_add_user
@@ -197,6 +197,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_add_user";
             this.Text = "Добавление нового пользователя";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_add_user_FormClosed);
             this.Load += new System.EventHandler(this.Form_add_user_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
