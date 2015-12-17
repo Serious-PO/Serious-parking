@@ -1069,7 +1069,7 @@ namespace Terminal.DataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[6];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [FirstName], [LastName], [BirthDay], [Balance], [CarNumber], [TelephoneNum" +
@@ -1078,8 +1078,7 @@ namespace Terminal.DataSet1TableAdapters {
             this._commandCollection[1] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO [UserQuerry] ([FirstName], [LastName], [BirthDay], [Balance], [CarNum" +
-                "ber], [TelephoneNumber],[LastQuit],[OnParking]) VALUES (@p1, @p2, @p3, @p4, @p5," +
-                " @p6,@p7,@p8 )";
+                "ber], [TelephoneNumber]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, null));
@@ -1087,8 +1086,6 @@ namespace Terminal.DataSet1TableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p4", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p5", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p6", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "TelephoneNumber", global::System.Data.DataRowVersion.Current, null));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastQuit", global::System.Data.DataRowVersion.Current, null));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.Bit, 2, global::System.Data.ParameterDirection.Input, true, 0, 0, "OnParking", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[2] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "UPDATE [UserQuerry] SET [Balance] = @p4 WHERE (([CarNumber] = @p9))";
@@ -1097,22 +1094,16 @@ namespace Terminal.DataSet1TableAdapters {
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Original, null));
             this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE [UserQuerry] SET[OnParking] = @p1 WHERE (([CarNumber] = @p2))";
+            this._commandCollection[3].CommandText = "UPDATE [UserQuerry] SET  [LastEnter] = @p7  WHERE (([CarNumber] = @p9))";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.Bit, 2, global::System.Data.ParameterDirection.Input, true, 0, 0, "OnParking", global::System.Data.DataRowVersion.Current, null));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p2", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Original, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastEnter", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Original, null));
             this._commandCollection[4] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE [UserQuerry] SET  [LastEnter] = @p7  WHERE (([CarNumber] = @p9))";
+            this._commandCollection[4].CommandText = "UPDATE [UserQuerry] SET  [LastQuit] = @p8 WHERE (([CarNumber] = @p9))";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p7", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastEnter", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastQuit", global::System.Data.DataRowVersion.Current, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Original, null));
-            this._commandCollection[5] = new global::System.Data.SqlServerCe.SqlCeCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "UPDATE [UserQuerry] SET  [LastQuit] = @p8 WHERE (([CarNumber] = @p9))";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p8", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, true, 0, 0, "LastQuit", global::System.Data.DataRowVersion.Current, null));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p9", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, true, 0, 0, "CarNumber", global::System.Data.DataRowVersion.Original, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1351,7 +1342,7 @@ namespace Terminal.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int addNewClient(string p1, string p2, global::System.Nullable<global::System.DateTime> p3, global::System.Nullable<double> p4, string p5, string p6, global::System.Nullable<global::System.DateTime> p7, global::System.Nullable<bool> p8) {
+        public virtual int addNewClient(string p1, string p2, global::System.Nullable<global::System.DateTime> p3, global::System.Nullable<double> p4, string p5, string p6) {
             global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[1];
             if ((p1 == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -1388,18 +1379,6 @@ namespace Terminal.DataSet1TableAdapters {
             }
             else {
                 command.Parameters[5].Value = ((string)(p6));
-            }
-            if ((p7.HasValue == true)) {
-                command.Parameters[6].Value = ((System.DateTime)(p7.Value));
-            }
-            else {
-                command.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((p8.HasValue == true)) {
-                command.Parameters[7].Value = ((bool)(p8.Value));
-            }
-            else {
-                command.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1457,43 +1436,8 @@ namespace Terminal.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateParking(global::System.Nullable<bool> p1, string p2) {
-            global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[3];
-            if ((p1.HasValue == true)) {
-                command.Parameters[0].Value = ((bool)(p1.Value));
-            }
-            else {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                command.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int updateTimeEnter(global::System.Nullable<global::System.DateTime> p7, string p9) {
-            global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[4];
+            global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[3];
             if ((p7.HasValue == true)) {
                 command.Parameters[0].Value = ((System.DateTime)(p7.Value));
             }
@@ -1528,7 +1472,7 @@ namespace Terminal.DataSet1TableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int updateTimeQuit(global::System.Nullable<global::System.DateTime> p8, string p9) {
-            global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[5];
+            global::System.Data.SqlServerCe.SqlCeCommand command = this.CommandCollection[4];
             if ((p8.HasValue == true)) {
                 command.Parameters[0].Value = ((System.DateTime)(p8.Value));
             }

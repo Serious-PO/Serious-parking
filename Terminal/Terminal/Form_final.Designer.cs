@@ -84,7 +84,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_final_Closed);
             this.Load += new System.EventHandler(this.Form_final_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form_final_MouseClick);
+            this.DoubleClick += new System.EventHandler(this.Form_final_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
