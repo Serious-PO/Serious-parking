@@ -12,12 +12,12 @@ namespace Terminal
     public partial class Form_final : Form
     {
         
-        DataSet1TableAdapters.UserQuerryTableAdapter user;
+        DataSet1TableAdapters.UserQuerry1TableAdapter user;
         Form_close frm;
-        Form1 frm1;
-        public Form_final(Form_close f,Form1 f1)
+        Form_operator frm1;
+        public Form_final(Form_close f,Form_operator f1)
         {
-            user = new DataSet1TableAdapters.UserQuerryTableAdapter();
+            user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
             InitializeComponent();
             frm = f;
             frm1 = f1;
@@ -57,6 +57,7 @@ namespace Terminal
                     label_getmoney.Text = "С Вашего счета списано: " + first.getChangesInBalance() + " руб.";
                     user.updateBalance(first.getBalance(), frm.number());
                     label_balance.Text = "На Вашем счете осталось: " + user.GetData().Rows[i]["Balance"].ToString() + " руб.";
+                    user.updateParking(false, frm.number());
                 }
             }
 
@@ -70,17 +71,12 @@ namespace Terminal
 
         private void Form_final_DoubleClick(object sender, EventArgs e)
         {
-            
-            DialogResult vibor2 = MessageBox.Show("Вы действительно хотите  повторить тестирование?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (vibor2 == DialogResult.Yes)
-            {
-                frm1.Show();
-                this.Close();
-            }
-            if (vibor2 == DialogResult.No)
-            {
 
-            }
+        }
+
+        private void Form_final_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
 
     }

@@ -11,7 +11,7 @@ namespace Terminal
 {
     public partial class Form1 : Form
     {
-        
+        Form_close formC;
         Form_car_number form2;
         Form_operator frm;
         public Form1()
@@ -25,9 +25,11 @@ namespace Terminal
         }
         private void pictureBox_car_Click(object sender, EventArgs e)
         {
-            form2  = new Form_car_number(this);
+           /* form2  = new Form_car_number(this);
             form2.Show();
-            this.Hide();
+            formC = new Form_close(this);
+            formC.Show();
+            this.Hide();*/
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
