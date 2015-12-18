@@ -26,7 +26,7 @@ namespace Terminal
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
@@ -48,6 +48,7 @@ namespace Terminal
                         user.updateTimeEnter(DateTime.Now, comboBox_num.Text.ToString());
                         form_open = new Form_open(this, frm);
                         form_open.Show();
+                        frm.logChang(number(), "Въезд");
                     }
                     else
                     {
@@ -99,6 +100,7 @@ namespace Terminal
 
         private void Form_car_number_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
             user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             update_box();
             new_lable();
@@ -119,7 +121,7 @@ namespace Terminal
 
         private void Form_car_number_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            e.Cancel = true;
         }
 
         private void Form_car_number_FormClosed(object sender, FormClosedEventArgs e)

@@ -24,7 +24,7 @@ namespace Terminal
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
@@ -44,6 +44,7 @@ namespace Terminal
                         user.updateTimeQuit(DateTime.Now, comboBox_num.Text.ToString());
                         form_final = new Form_final(this, frm);
                         form_final.Show();
+                        frm.logChang(number(), "Выезд");
                     }
                     else
                     {
@@ -96,6 +97,7 @@ namespace Terminal
 
         private void Form_close_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
             // TODO: This line of code loads data into the 'dataSet1.UserQuerry1' table. You can move, or remove it, as needed.
             user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             update_box();
@@ -118,7 +120,7 @@ namespace Terminal
 
         private void Form_close_FormClosing(object sender, FormClosingEventArgs e)
         {
-          
+            e.Cancel = true;
         }
     }
 }

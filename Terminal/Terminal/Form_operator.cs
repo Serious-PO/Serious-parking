@@ -19,6 +19,7 @@ namespace Terminal
         private Test test;
         Form_close formC;
         Form_car_number form2;
+        Log L;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
         public Form_operator()
@@ -31,7 +32,7 @@ namespace Terminal
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
@@ -93,6 +94,8 @@ namespace Terminal
             form2.Show();
             formC = new Form_close(this);
             formC.Show();
+            L = new Log(this);
+            L.Show();
         }
 
         private void tryBox()
@@ -261,6 +264,11 @@ namespace Terminal
 
             formC = new Form_close(this);
             formC.Show();
+        }
+
+        public void logChang(string number, string operation)
+        {
+            L.logChange(number, operation);
         }
    
     }

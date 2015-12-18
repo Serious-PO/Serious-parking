@@ -74,6 +74,7 @@
             this.Controls.Add(this.label_name);
             this.Controls.Add(this.pictureBox_open);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_open";
