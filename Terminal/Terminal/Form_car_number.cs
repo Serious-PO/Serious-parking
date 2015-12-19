@@ -100,7 +100,6 @@ namespace Terminal
 
         private void Form_car_number_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
             user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             update_box();
             new_lable();

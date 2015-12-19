@@ -142,3 +142,4 @@ C:\Users\Vilemaw\Desktop\Serious-parking-Konstantin\Terminal\Terminal\obj\x86\De
 C:\Users\Vilemaw\Desktop\Serious-parking-Konstantin\Terminal\Terminal\obj\x86\Debug\Terminal.Properties.Resources.resources
 C:\Users\Vilemaw\Desktop\Serious-parking-Konstantin\Terminal\Terminal\obj\x86\Debug\Terminal.csproj.GenerateResource.Cache
 C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Log.resources
+C:\Users\Vilemaw\Desktop\u131127\Третий курс\1 семестр\Технология программирования\Repository_PO\Serious-parking\Terminal\Terminal\obj\x86\Debug\Terminal.Form_user_info.resources

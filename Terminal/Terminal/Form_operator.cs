@@ -19,6 +19,7 @@ namespace Terminal
         private Test test;
         Form_close formC;
         Form_car_number form2;
+        Form_user_info form_info;
         Log L;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
@@ -90,6 +91,7 @@ namespace Terminal
         {
             test = new Test(this);
             this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
+            form_info = new Form_user_info();
             form2 = new Form_car_number(this);
             form2.Show();
             formC = new Form_close(this);
@@ -269,6 +271,22 @@ namespace Terminal
         public void logChang(string number, string operation)
         {
             L.logChange(number, operation);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            form2.WindowState = FormWindowState.Normal;
+            formC.WindowState = FormWindowState.Normal;
+            L.WindowState = FormWindowState.Normal;
+            form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y));
+            formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height);
+            L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y);
+
+        }
+
+        private void button_user_info_Click(object sender, EventArgs e)
+        {
+            form_info.Show();
         }
    
     }

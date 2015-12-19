@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_operator));
             this.label_name = new System.Windows.Forms.Label();
             this.label_money = new System.Windows.Forms.Label();
@@ -38,12 +39,16 @@
             this.textBox_carNumber2 = new System.Windows.Forms.TextBox();
             this.textBox_carNumber1 = new System.Windows.Forms.TextBox();
             this.textBox_money = new System.Windows.Forms.TextBox();
+            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            this.button_user_info = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_name
             // 
             this.label_name.AutoSize = true;
-            this.label_name.Location = new System.Drawing.Point(104, 120);
+            this.label_name.Location = new System.Drawing.Point(128, 120);
             this.label_name.Name = "label_name";
             this.label_name.Size = new System.Drawing.Size(132, 13);
             this.label_name.TabIndex = 2;
@@ -53,7 +58,7 @@
             // label_money
             // 
             this.label_money.AutoSize = true;
-            this.label_money.Location = new System.Drawing.Point(88, 172);
+            this.label_money.Location = new System.Drawing.Point(112, 172);
             this.label_money.Name = "label_money";
             this.label_money.Size = new System.Drawing.Size(148, 13);
             this.label_money.TabIndex = 3;
@@ -62,7 +67,7 @@
             // 
             // button_apply_balance
             // 
-            this.button_apply_balance.Location = new System.Drawing.Point(262, 255);
+            this.button_apply_balance.Location = new System.Drawing.Point(286, 255);
             this.button_apply_balance.Name = "button_apply_balance";
             this.button_apply_balance.Size = new System.Drawing.Size(148, 35);
             this.button_apply_balance.TabIndex = 5;
@@ -92,7 +97,7 @@
             // 
             // textBox_carNumber3
             // 
-            this.textBox_carNumber3.Location = new System.Drawing.Point(362, 120);
+            this.textBox_carNumber3.Location = new System.Drawing.Point(386, 120);
             this.textBox_carNumber3.Name = "textBox_carNumber3";
             this.textBox_carNumber3.Size = new System.Drawing.Size(47, 20);
             this.textBox_carNumber3.TabIndex = 3;
@@ -100,7 +105,7 @@
             // 
             // textBox_carNumber2
             // 
-            this.textBox_carNumber2.Location = new System.Drawing.Point(300, 120);
+            this.textBox_carNumber2.Location = new System.Drawing.Point(324, 120);
             this.textBox_carNumber2.Name = "textBox_carNumber2";
             this.textBox_carNumber2.Size = new System.Drawing.Size(56, 20);
             this.textBox_carNumber2.TabIndex = 2;
@@ -108,7 +113,7 @@
             // 
             // textBox_carNumber1
             // 
-            this.textBox_carNumber1.Location = new System.Drawing.Point(261, 120);
+            this.textBox_carNumber1.Location = new System.Drawing.Point(285, 120);
             this.textBox_carNumber1.Name = "textBox_carNumber1";
             this.textBox_carNumber1.Size = new System.Drawing.Size(33, 20);
             this.textBox_carNumber1.TabIndex = 1;
@@ -116,17 +121,45 @@
             // 
             // textBox_money
             // 
-            this.textBox_money.Location = new System.Drawing.Point(262, 169);
+            this.textBox_money.Location = new System.Drawing.Point(286, 169);
             this.textBox_money.Name = "textBox_money";
             this.textBox_money.Size = new System.Drawing.Size(148, 20);
             this.textBox_money.TabIndex = 4;
             this.textBox_money.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_money_KeyPress);
+            // 
+            // visualStyler1
+            // 
+            this.visualStyler1.HostForm = this;
+            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
+            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
+            // 
+            // button_user_info
+            // 
+            this.button_user_info.Location = new System.Drawing.Point(285, 370);
+            this.button_user_info.Name = "button_user_info";
+            this.button_user_info.Size = new System.Drawing.Size(148, 35);
+            this.button_user_info.TabIndex = 8;
+            this.button_user_info.Text = "Действия пользователя";
+            this.button_user_info.UseVisualStyleBackColor = true;
+            this.button_user_info.Click += new System.EventHandler(this.button_user_info_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(608, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Группировка окон";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form_operator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 447);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_user_info);
             this.Controls.Add(this.textBox_carNumber3);
             this.Controls.Add(this.textBox_carNumber2);
             this.Controls.Add(this.textBox_carNumber1);
@@ -144,6 +177,7 @@
             this.Text = "Окно для оператора";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_operator_FormClosing);
             this.Load += new System.EventHandler(this.Form_operator_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,6 +194,9 @@
         public System.Windows.Forms.TextBox textBox_carNumber2;
         public System.Windows.Forms.TextBox textBox_carNumber1;
         public System.Windows.Forms.TextBox textBox_money;
+        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
+        private System.Windows.Forms.Button button_user_info;
+        private System.Windows.Forms.Button button2;
     }
 }
 

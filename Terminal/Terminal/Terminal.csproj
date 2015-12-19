@@ -114,6 +114,12 @@
     <Compile Include="Form_operator.designer.cs">
       <DependentUpon>Form_operator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_user_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_user_info.Designer.cs">
+      <DependentUpon>Form_user_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_operator.resx">
       <DependentUpon>Form_operator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_user_info.resx">
+      <DependentUpon>Form_user_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log.resx">
       <DependentUpon>Log.cs</DependentUpon>

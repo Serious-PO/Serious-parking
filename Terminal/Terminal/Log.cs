@@ -61,7 +61,6 @@ namespace Terminal
         }
         private void Log_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
             this.Location = new Point(form_operator.Location.X-this.Width-5, form_operator.Location.Y);
         }
 

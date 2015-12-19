@@ -97,7 +97,6 @@ namespace Terminal
 
         private void Form_close_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
             // TODO: This line of code loads data into the 'dataSet1.UserQuerry1' table. You can move, or remove it, as needed.
             user = new Terminal.DataSet1TableAdapters.UserQuerry1TableAdapter();
             update_box();
