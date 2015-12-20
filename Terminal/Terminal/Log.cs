@@ -14,10 +14,12 @@ namespace Terminal
         string carNumber;
         DataSet1TableAdapters.UserDataTableAdapter user;
         Form_operator form_operator;
+        Form_add_user form_add_user;
         public Log(Form_operator frm_operator)
         {
             InitializeComponent();
             form_operator = frm_operator;
+            form_add_user = new Form_add_user();
             user = new DataSet1TableAdapters.UserDataTableAdapter();
             Opacity = 0;
             Timer timer = new Timer();
@@ -67,6 +69,11 @@ namespace Terminal
         private void Log_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void Log_LocationChanged(object sender, EventArgs e)
+        {
+
         }
     }
   

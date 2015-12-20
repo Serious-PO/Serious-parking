@@ -14,6 +14,7 @@ namespace Terminal
         public Point screen = new Point();
         private bool tryNumb;
         private bool tryBlnc;
+        public bool move_form;
         Form_add_user form_add_user;
         Form_change_price form_change_price;
         private Test test;
@@ -289,19 +290,61 @@ namespace Terminal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            form2.WindowState = FormWindowState.Normal;
-            formC.WindowState = FormWindowState.Normal;
-            L.WindowState = FormWindowState.Normal;
-            form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y));
-            formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height);
-            L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y);
-
+            if (move_form == false)
+            {
+                move_form = true;
+                button2.Text = "отключить";
+                form2.WindowState = FormWindowState.Normal;
+                formC.WindowState = FormWindowState.Normal;
+                L.WindowState = FormWindowState.Normal;
+                form2.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y));
+                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
+                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+            }
+            else
+            {
+                button2.Text = "включить";
+                form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y));
+                formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height);
+                L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y);
+                move_form = false;
+            }
         }
 
         private void button_user_info_Click(object sender, EventArgs e)
         {
             form_info = new Form_user_info();
             form_info.Show();
+        }
+
+        private void Form_operator_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Form_operator_CursorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_operator_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            if (move_form == true)
+            {
+                form2.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y));
+                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
+                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+            }
+        }
+
+        private void Form_operator_LocationChanged(object sender, EventArgs e)
+        {
+            if (move_form == true)
+            {
+                form2.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y));
+                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
+                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+            }
         }
    
     }
