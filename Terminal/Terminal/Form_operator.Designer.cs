@@ -40,6 +40,8 @@
             this.textBox_money = new System.Windows.Forms.TextBox();
             this.button_user_info = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_price = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label_name
@@ -144,11 +146,32 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Стоимость в руб:";
+            // 
+            // textBox_price
+            // 
+            this.textBox_price.BackColor = System.Drawing.Color.White;
+            this.textBox_price.Location = new System.Drawing.Point(124, 21);
+            this.textBox_price.Name = "textBox_price";
+            this.textBox_price.ReadOnly = true;
+            this.textBox_price.Size = new System.Drawing.Size(44, 20);
+            this.textBox_price.TabIndex = 13;
+            this.textBox_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form_operator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 447);
+            this.Controls.Add(this.textBox_price);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button_user_info);
             this.Controls.Add(this.textBox_carNumber3);
@@ -186,6 +209,8 @@
         public System.Windows.Forms.TextBox textBox_money;
         private System.Windows.Forms.Button button_user_info;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox textBox_price;
     }
 }
 

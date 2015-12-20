@@ -13,13 +13,15 @@ namespace Terminal
 {
     public partial class Form_change_price : Form
     {
+        DataSet1TableAdapters.PriceTableAdapter price;
         private Test test;
         Form_operator form_operator;
         private bool tryPrice;
-        public Form_change_price()
+        public Form_change_price(Form_operator form)
         {
-            form_operator = new Form_operator();
+            form_operator = form;
             InitializeComponent();
+            price = new DataSet1TableAdapters.PriceTableAdapter();
             Opacity = 0;
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
@@ -43,8 +45,26 @@ namespace Terminal
         private void textbox_change_price_KeyPress(object sender, KeyPressEventArgs e)
         {
             {
-                if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                char tryKey = e.KeyChar;
+               /* if ((e.KeyChar <= 47 || e.KeyChar >= 58 && e.KeyChar != 8))
+                {
                     e.Handled = true;
+                }*/
+                if (((tryKey == '0')
+                | (tryKey == '1')
+                | (tryKey == '2')
+                | (tryKey == '3')
+                | (tryKey == '4')
+                | (tryKey == '5')
+                | (tryKey == '6')
+                | (tryKey == '7')
+                | (tryKey == '8')
+                | (tryKey == '9')
+                | (tryKey == ',')
+                ) | tryKey == '\b') return;
+                else
+                    e.Handled = true;
+
             }
         }
 
@@ -54,8 +74,9 @@ namespace Terminal
             if ((textBox_password.Text.ToString() == "123456") && (tryPrice == true))
             {
                 User user = new User();
-                ConfigurationSettings.AppSettings.Set("Price",textBox_price.Text);
-                user.changePrice();
+                price.changePrice(double.Parse(textBox_price.Text), 1);
+                form_operator.textBox_price.Text = price.GetData().Rows[0]["price"].ToString();
+                user.changePrice(double.Parse(textBox_price.Text));
                 MessageBox.Show("Стоимость изменена!");
                 this.Close();
             }

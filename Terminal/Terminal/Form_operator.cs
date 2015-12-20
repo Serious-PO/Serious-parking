@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using classUsers;
 namespace Terminal
 {
     public partial class Form_operator : Form
@@ -21,16 +21,22 @@ namespace Terminal
         Form_car_number form2;
         Form_user_info form_info;
         Log L;
+        DataSet1TableAdapters.PriceTableAdapter price;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
+        DataSet1TableAdapters.UserInfoTableAdapter userInfo;
+        User Price;
         public Form_operator()
         {
+            price = new DataSet1TableAdapters.PriceTableAdapter();
             screen.X=Screen.PrimaryScreen.Bounds.Width;
             screen.Y = Screen.PrimaryScreen.Bounds.Height;
             user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
+            userInfo = new DataSet1TableAdapters.UserInfoTableAdapter();
             InitializeComponent();
             Opacity = 0;
             Timer timer = new Timer();
+            Price = new User();
             timer.Tick += new EventHandler((sender, e) =>
             {
                 if ((Opacity += 0.08d) >= 1) timer.Stop();
@@ -50,6 +56,12 @@ namespace Terminal
                            DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                            if (vibor2 == DialogResult.Yes)
                            {
+                               userInfo.newInfo(userInfo.GetData().Rows.Count + 1, "Пополнение", carNumber, 
+                                   double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()),
+                                   double.Parse(textBox_money.Text.ToString()), "0", (double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()) +
+                               double.Parse(textBox_money.Text.ToString())), DateTime.Now);
+
+
                                user.updateBalance((double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()) +
                                double.Parse(textBox_money.Text.ToString())), carNumber);
                                MessageBox.Show("Баланс пополнен!");
@@ -83,7 +95,7 @@ namespace Terminal
 
         private void button_change_price_Click(object sender, EventArgs e)
         {
-            form_change_price = new Form_change_price();
+            form_change_price = new Form_change_price(this);
             form_change_price.Show();
         }
 
@@ -91,13 +103,15 @@ namespace Terminal
         {
             test = new Test(this);
             this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
-            form_info = new Form_user_info();
+            
             form2 = new Form_car_number(this);
             form2.Show();
             formC = new Form_close(this);
             formC.Show();
             L = new Log(this);
             L.Show();
+            textBox_price.Text = price.GetData().Rows[0]["price"].ToString();
+            Price.changePrice(double.Parse(textBox_price.Text));
         }
 
         private void tryBox()
@@ -286,6 +300,7 @@ namespace Terminal
 
         private void button_user_info_Click(object sender, EventArgs e)
         {
+            form_info = new Form_user_info();
             form_info.Show();
         }
    

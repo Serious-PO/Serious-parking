@@ -46,7 +46,7 @@ namespace Terminal
                         + " " + user.GetData().Rows[i]["LastName"].ToString();
                     user.updateTimeEnter(DateTime.Now, frm.number());
                     label_balance.Text = "На вашем счете: " + user.GetData().Rows[i]["Balance"].ToString() + " \nМаксимальное время парковки: "
-                        + (Int32.Parse(user.GetData().Rows[i]["Balance"].ToString())/(int)first.getPrice()).ToString() + " мин";
+                        + ((int)(Double.Parse(user.GetData().Rows[i]["Balance"].ToString())/(double)first.getPrice())).ToString() + " мин";
                     user.updateParking(true, frm.number());
                 }
             }
