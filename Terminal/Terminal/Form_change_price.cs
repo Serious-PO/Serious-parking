@@ -16,9 +16,9 @@ namespace Terminal
         private Test test;
         Form_operator form_operator;
         private bool tryPrice;
-        public Form_change_price()
+        public Form_change_price(Form_operator form)
         {
-            form_operator = new Form_operator();
+            form_operator = form;
             InitializeComponent();
             Opacity = 0;
             Timer timer = new Timer();
@@ -54,8 +54,8 @@ namespace Terminal
             if ((textBox_password.Text.ToString() == "123456") && (tryPrice == true))
             {
                 User user = new User();
-                ConfigurationSettings.AppSettings.Set("Price",textBox_price.Text);
-                user.changePrice();
+                form_operator.label_price.Text = textBox_price.Text;
+                user.changePrice(double.Parse(textBox_price.Text));
                 MessageBox.Show("Стоимость изменена!");
                 this.Close();
             }
@@ -78,14 +78,14 @@ namespace Terminal
                 }
                 if (price > 10000)
                 {
-                    MessageBox.Show("Цена за минуту не может превышать 10000");
+                    MessageBox.Show("Цена за минуту не может быть больше 10000");
                     tryPrice = false;
                 }
             }
             catch
             {
                 tryPrice = false;
-                MessageBox.Show("Значение поля цена за минуту не может быть пустым!");
+                MessageBox.Show("Цена за минуту не может быть пустым!");
             }
         }
 

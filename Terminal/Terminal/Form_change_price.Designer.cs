@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_change_price));
             this.label_price = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
@@ -92,6 +93,7 @@
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.label_price);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_change_price";

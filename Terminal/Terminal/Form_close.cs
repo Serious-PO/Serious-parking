@@ -24,7 +24,7 @@ namespace Terminal
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
@@ -44,6 +44,7 @@ namespace Terminal
                         user.updateTimeQuit(DateTime.Now, comboBox_num.Text.ToString());
                         form_final = new Form_final(this, frm);
                         form_final.Show();
+                        frm.logChang(number(), "Выезд");
                     }
                     else
                     {
@@ -77,12 +78,12 @@ namespace Terminal
         {
             for (int i = 0; i < user.GetData().Rows.Count; i++)
             {
-                label_check.Text = "Вне территории";
+                label_check.Text = "вне территории";
                 if (number() == user.GetData().Rows[i]["CarNumber"].ToString())
                 {
                     if (user.GetData().Rows[i]["OnParking"].ToString() == true.ToString())
                     {
-                        label_check.Text = "На территории";
+                        label_check.Text = "на территории";
                         break;
                     }
                 }
@@ -118,7 +119,7 @@ namespace Terminal
 
         private void Form_close_FormClosing(object sender, FormClosingEventArgs e)
         {
-          
+            e.Cancel = true;
         }
     }
 }

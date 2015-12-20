@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_add_user));
             this.textBox_last_name = new System.Windows.Forms.TextBox();
             this.textBox_first_name = new System.Windows.Forms.TextBox();
             this.button_apply = new System.Windows.Forms.Button();
@@ -51,6 +52,8 @@
             this.textBox_last_name.Name = "textBox_last_name";
             this.textBox_last_name.Size = new System.Drawing.Size(148, 20);
             this.textBox_last_name.TabIndex = 0;
+            this.textBox_last_name.Enter += new System.EventHandler(this.textBox_last_name_Enter);
+            this.textBox_last_name.MouseEnter += new System.EventHandler(this.textBox_last_name_MouseEnter);
             // 
             // textBox_first_name
             // 
@@ -58,6 +61,7 @@
             this.textBox_first_name.Name = "textBox_first_name";
             this.textBox_first_name.Size = new System.Drawing.Size(148, 20);
             this.textBox_first_name.TabIndex = 1;
+            this.textBox_first_name.Enter += new System.EventHandler(this.textBox_first_name_Enter);
             // 
             // button_apply
             // 
@@ -122,6 +126,7 @@
             this.text_telephone.TabIndex = 8;
             this.text_telephone.Text = "89051234566";
             this.text_telephone.TextChanged += new System.EventHandler(this.text_telephone_TextChanged);
+            this.text_telephone.Enter += new System.EventHandler(this.text_telephone_Enter);
             this.text_telephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.text_telephone_press);
             // 
             // textBox_year
@@ -131,6 +136,7 @@
             this.textBox_year.Size = new System.Drawing.Size(64, 20);
             this.textBox_year.TabIndex = 4;
             this.textBox_year.Text = "1990";
+            this.textBox_year.Enter += new System.EventHandler(this.textBox_year_Enter);
             // 
             // textBox_month
             // 
@@ -139,6 +145,7 @@
             this.textBox_month.Size = new System.Drawing.Size(37, 20);
             this.textBox_month.TabIndex = 3;
             this.textBox_month.Text = "01";
+            this.textBox_month.Enter += new System.EventHandler(this.textBox_month_Enter);
             // 
             // textBox_day
             // 
@@ -147,6 +154,7 @@
             this.textBox_day.Size = new System.Drawing.Size(35, 20);
             this.textBox_day.TabIndex = 2;
             this.textBox_day.Text = "01";
+            this.textBox_day.Enter += new System.EventHandler(this.textBox_day_Enter);
             // 
             // textBox_carNumber1
             // 
@@ -154,6 +162,7 @@
             this.textBox_carNumber1.Name = "textBox_carNumber1";
             this.textBox_carNumber1.Size = new System.Drawing.Size(24, 20);
             this.textBox_carNumber1.TabIndex = 5;
+            this.textBox_carNumber1.Enter += new System.EventHandler(this.textBox_carNumber1_Enter);
             this.textBox_carNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber1_KeyPress);
             // 
             // textBox_carNumber2
@@ -162,6 +171,8 @@
             this.textBox_carNumber2.Name = "textBox_carNumber2";
             this.textBox_carNumber2.Size = new System.Drawing.Size(69, 20);
             this.textBox_carNumber2.TabIndex = 6;
+            this.textBox_carNumber2.TextChanged += new System.EventHandler(this.textBox_carNumber2_TextChanged);
+            this.textBox_carNumber2.Enter += new System.EventHandler(this.textBox_carNumber2_Enter);
             this.textBox_carNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber2_KeyPress);
             // 
             // textBox_carNumber3
@@ -170,6 +181,7 @@
             this.textBox_carNumber3.Name = "textBox_carNumber3";
             this.textBox_carNumber3.Size = new System.Drawing.Size(43, 20);
             this.textBox_carNumber3.TabIndex = 7;
+            this.textBox_carNumber3.Enter += new System.EventHandler(this.textBox_carNumber3_Enter);
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
             // Form_add_user
@@ -193,6 +205,7 @@
             this.Controls.Add(this.textBox_first_name);
             this.Controls.Add(this.textBox_last_name);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_add_user";

@@ -23,6 +23,14 @@ namespace Terminal
             frm = new Form_operator();
             frm.Show();
         }
+        private void pictureBox_car_Click(object sender, EventArgs e)
+        {
+           /* form2  = new Form_car_number(this);
+            form2.Show();
+            formC = new Form_close(this);
+            formC.Show();
+            this.Hide();*/
+        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {

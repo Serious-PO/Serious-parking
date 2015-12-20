@@ -229,11 +229,96 @@ namespace Terminal
         {
             this.Location = new Point((form_opreator.screen.X / 2) - (this.Width / 2), (form_opreator.screen.Y / 2) - (this.Height / 2)-20);
              test = new Test(this);
+             textBox_first_name.Text = "Имя";
+             textBox_first_name.ForeColor = Color.Gray;
+             textBox_last_name.Text = "Фамилия";
+             textBox_last_name.ForeColor = Color.Gray;
+             textBox_day.Text = "01";
+             textBox_day.ForeColor = Color.Gray;
+             textBox_month.Text = "01";
+             textBox_month.ForeColor = Color.Gray;
+             textBox_year.Text = "1995";
+             textBox_year.ForeColor = Color.Gray;
+             textBox_carNumber1.Text = "А";
+             textBox_carNumber1.ForeColor = Color.Gray;
+             textBox_carNumber2.Text = "537";
+             textBox_carNumber2.ForeColor = Color.Gray;
+             textBox_carNumber3.Text = "CT";
+             textBox_carNumber3.ForeColor = Color.Gray;
+             text_telephone.Text = "89254594586";
+             text_telephone.ForeColor = Color.Gray;
         }
+
 
         private void Form_add_user_FormClosed(object sender, FormClosedEventArgs e)
         {
            
+        }
+
+        private void textBox_carNumber2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void textBox_first_name_Enter(object sender, EventArgs e)
+        {
+            textBox_first_name.Text = null;
+            textBox_first_name.ForeColor = Color.Black;
+        }
+
+        private void textBox_last_name_Enter(object sender, EventArgs e)
+        {
+            //textBox_last_name.Text = null;
+            //textBox_last_name.ForeColor = Color.Black;
+        }
+
+        private void textBox_day_Enter(object sender, EventArgs e)
+        {
+            textBox_day.Text = null;
+            textBox_day.ForeColor = Color.Black;
+        }
+
+        private void textBox_month_Enter(object sender, EventArgs e)
+        {
+            textBox_month.Text=null;
+            textBox_month.ForeColor = Color.Black;
+        }
+
+        private void textBox_year_Enter(object sender, EventArgs e)
+        {
+            textBox_year.Text = null;
+            textBox_year.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber1_Enter(object sender, EventArgs e)
+        {
+            textBox_carNumber1.Text = null;
+            textBox_carNumber1.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber2_Enter(object sender, EventArgs e)
+        {
+            textBox_carNumber2.Text = null;
+            textBox_carNumber2.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber3_Enter(object sender, EventArgs e)
+        {
+            textBox_carNumber3.Text = null;
+            textBox_carNumber3.ForeColor = Color.Black;
+        }
+
+        private void text_telephone_Enter(object sender, EventArgs e)
+        {
+            text_telephone.Text = null;
+            text_telephone.ForeColor = Color.Black;
+        }
+
+        private void textBox_last_name_MouseEnter(object sender, EventArgs e)
+        {
+            textBox_last_name.Text = null;
+            textBox_last_name.ForeColor = Color.Black;
         }
 
     }
