@@ -39,6 +39,16 @@ namespace Terminal
 
         private void comboBox_num_TextChanged(object sender, EventArgs e)
         {
+
+            for (int i = 0; i < user.GetData().Rows.Count; i++)
+                if (user.GetData().Rows[i]["CarNumber"].ToString() == comboBox_num.Text)
+                {
+                    textBox_firstName.Text = user.GetData().Rows[i]["FirstName"].ToString();
+                    textBox_lastName.Text = user.GetData().Rows[i]["LastName"].ToString();
+                    textBox_balance.Text = user.GetData().Rows[i]["Balance"].ToString();
+                    break;
+                }
+
             for (int i = 0; i < userInfo.GetData().Rows.Count; i++)
             {
                 if (comboBox_num.Text == userInfo.GetData().Rows[i]["CarNumber"].ToString())
@@ -60,6 +70,7 @@ namespace Terminal
                 }
                 
             }
+            
         }
 
 

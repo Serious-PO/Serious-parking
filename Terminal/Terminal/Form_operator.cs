@@ -104,7 +104,7 @@ namespace Terminal
             Price.changePrice(double.Parse(label_price.Text));
             test = new Test(this);
             this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
-            form_info = new Form_user_info();
+            
             form2 = new Form_car_number(this);
             form2.Show();
             formC = new Form_close(this);
@@ -300,6 +300,7 @@ namespace Terminal
 
         private void button_user_info_Click(object sender, EventArgs e)
         {
+            form_info = new Form_user_info();
             form_info.Show();
         }
    
