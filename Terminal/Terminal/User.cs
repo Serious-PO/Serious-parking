@@ -21,12 +21,10 @@ namespace classUsers
      
         public User()
         {
-            price = double.Parse(ConfigurationSettings.AppSettings["Price"]); 
+            
         }
         public User(String fN,String lN,DateTime bD,Int64 b,String cN,String tN,DateTime lE,DateTime lQ)
         {
-
-            price =double.Parse(ConfigurationSettings.AppSettings["Price"]); 
             firstName = fN;
             lastName = lN;
             birthDay = bD;
@@ -36,9 +34,9 @@ namespace classUsers
             lastEnter = lE;
             lastQuit = lQ;
         }
-        public void changePrice()
+        public void changePrice(double p)
         {
-            price = double.Parse(ConfigurationSettings.AppSettings["Price"]);
+            price = p;
         }
 
         public double getBalance()

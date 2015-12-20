@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using classUsers;
 namespace Terminal
 {
     public partial class Form_operator : Form
@@ -19,9 +19,11 @@ namespace Terminal
         private Test test;
         Form_close formC;
         Form_car_number form2;
+        Form_user_info form_info;
         Log L;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
+        User Price;
         public Form_operator()
         {
             screen.X=Screen.PrimaryScreen.Bounds.Width;
@@ -30,14 +32,13 @@ namespace Terminal
             InitializeComponent();
             Opacity = 0;
             Timer timer = new Timer();
+            Price = new User();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
-            L = new Log();
-            L.Show();
 
         }
 
@@ -84,18 +85,22 @@ namespace Terminal
 
         private void button_change_price_Click(object sender, EventArgs e)
         {
-            form_change_price = new Form_change_price();
+            form_change_price = new Form_change_price(this);
             form_change_price.Show();
         }
 
         private void Form_operator_Load(object sender, EventArgs e)
         {
+            Price.changePrice(double.Parse(label_price.Text));
             test = new Test(this);
             this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
+            form_info = new Form_user_info();
             form2 = new Form_car_number(this);
             form2.Show();
             formC = new Form_close(this);
             formC.Show();
+            L = new Log(this);
+            L.Show();
         }
 
         private void tryBox()
@@ -269,6 +274,22 @@ namespace Terminal
         public void logChang(string number, string operation)
         {
             L.logChange(number, operation);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            form2.WindowState = FormWindowState.Normal;
+            formC.WindowState = FormWindowState.Normal;
+            L.WindowState = FormWindowState.Normal;
+            form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y));
+            formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height);
+            L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y);
+
+        }
+
+        private void button_user_info_Click(object sender, EventArgs e)
+        {
+            form_info.Show();
         }
    
     }

@@ -45,6 +45,7 @@
             // 
             // button_close
             // 
+            this.button_close.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_close.Location = new System.Drawing.Point(110, 126);
             this.button_close.Name = "button_close";
             this.button_close.Size = new System.Drawing.Size(83, 33);
@@ -96,6 +97,7 @@
             this.button_refresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_refresh.BackgroundImage")));
             this.button_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_refresh.CausesValidation = false;
+            this.button_refresh.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_refresh.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button_refresh.FlatAppearance.BorderSize = 0;
             this.button_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -134,8 +136,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_close);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(310, 232);
             this.Name = "Form_close";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выезд";

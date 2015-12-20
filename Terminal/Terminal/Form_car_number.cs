@@ -26,7 +26,7 @@ namespace Terminal
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
-                if ((Opacity += 0.08d) == 1) timer.Stop();
+                if ((Opacity += 0.08d) >= 1) timer.Stop();
             });
             timer.Interval = 5;
             timer.Start();
@@ -120,7 +120,7 @@ namespace Terminal
 
         private void Form_car_number_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            e.Cancel = true;
         }
 
         private void Form_car_number_FormClosed(object sender, FormClosedEventArgs e)
