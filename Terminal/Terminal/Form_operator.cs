@@ -23,12 +23,14 @@ namespace Terminal
         Log L;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
+        DataSet1TableAdapters.UserInfoTableAdapter userInfo;
         User Price;
         public Form_operator()
         {
             screen.X=Screen.PrimaryScreen.Bounds.Width;
             screen.Y = Screen.PrimaryScreen.Bounds.Height;
             user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
+            userInfo = new DataSet1TableAdapters.UserInfoTableAdapter();
             InitializeComponent();
             Opacity = 0;
             Timer timer = new Timer();
@@ -52,6 +54,12 @@ namespace Terminal
                            DialogResult vibor2 = MessageBox.Show("Вы действительно хотите пополнить баланс?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                            if (vibor2 == DialogResult.Yes)
                            {
+                               userInfo.newInfo(userInfo.GetData().Rows.Count + 1, "Пополнение", carNumber, 
+                                   double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()),
+                                   double.Parse(textBox_money.Text.ToString()), "0", (double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()) +
+                               double.Parse(textBox_money.Text.ToString())), DateTime.Now);
+
+
                                user.updateBalance((double.Parse(user.GetData().Rows[num_row]["Balance"].ToString()) +
                                double.Parse(textBox_money.Text.ToString())), carNumber);
                                MessageBox.Show("Баланс пополнен!");

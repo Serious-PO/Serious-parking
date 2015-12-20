@@ -12,15 +12,18 @@ namespace Terminal
     public partial class Form_close : Form
     {
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
+       
         Form_Error form_error;
         Form_final form_final;
         Form_operator frm;
         private bool check;
         public Form_close(Form_operator f)
         {
+
             frm = f;
             InitializeComponent();
             Opacity = 0;
+            
             Timer timer = new Timer();
             timer.Tick += new EventHandler((sender, e) =>
             {
@@ -45,6 +48,7 @@ namespace Terminal
                         form_final = new Form_final(this, frm);
                         form_final.Show();
                         frm.logChang(number(), "Выезд");
+                        
                     }
                     else
                     {
