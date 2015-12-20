@@ -21,12 +21,14 @@ namespace Terminal
         Form_car_number form2;
         Form_user_info form_info;
         Log L;
+        DataSet1TableAdapters.PriceTableAdapter price;
         private int num_row;
         DataSet1TableAdapters.UserQuerry1TableAdapter user;
         DataSet1TableAdapters.UserInfoTableAdapter userInfo;
         User Price;
         public Form_operator()
         {
+            price = new DataSet1TableAdapters.PriceTableAdapter();
             screen.X=Screen.PrimaryScreen.Bounds.Width;
             screen.Y = Screen.PrimaryScreen.Bounds.Height;
             user = new DataSet1TableAdapters.UserQuerry1TableAdapter();
@@ -109,6 +111,7 @@ namespace Terminal
             formC.Show();
             L = new Log(this);
             L.Show();
+            label_price.Text=price.GetData().Rows[0]["price"].ToString();
         }
 
         private void tryBox()
