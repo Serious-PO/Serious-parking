@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_change_price));
             this.label_price = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.textBox_password = new System.Windows.Forms.TextBox();
@@ -59,7 +60,7 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(143, 20);
-            this.textBox_password.TabIndex = 2;
+            this.textBox_password.TabIndex = 1;
             this.textBox_password.TextChanged += new System.EventHandler(this.textBox_password_TextChanged);
             // 
             // textBox_price
@@ -67,7 +68,7 @@
             this.textBox_price.Location = new System.Drawing.Point(140, 77);
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(143, 20);
-            this.textBox_price.TabIndex = 3;
+            this.textBox_price.TabIndex = 2;
             this.textBox_price.TextChanged += new System.EventHandler(this.textBox_price_TextChanged);
             this.textBox_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_change_price_KeyPress);
             // 
@@ -76,7 +77,7 @@
             this.button1.Location = new System.Drawing.Point(115, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 33);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Применить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -92,10 +93,11 @@
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.label_price);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_change_price";
-            this.Text = "Form_change_price";
+            this.Text = "Изменить цену";
             this.Load += new System.EventHandler(this.Form_change_price_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

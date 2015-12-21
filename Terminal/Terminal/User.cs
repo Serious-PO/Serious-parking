@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 
 namespace classUsers
 {
@@ -18,11 +18,12 @@ namespace classUsers
         private DateTime lastQuit;
         private static double price;
 
+     
         public User()
         {
-
+            
         }
-        public User(String fN,String lN,DateTime bD,Int64 b,String cN,String tN,DateTime lE,DateTime lQ)
+        public User(String fN,String lN,DateTime bD,double b,String cN,String tN,DateTime lE,DateTime lQ)
         {
             firstName = fN;
             lastName = lN;
@@ -33,9 +34,9 @@ namespace classUsers
             lastEnter = lE;
             lastQuit = lQ;
         }
-        public void changePrice(double a)
+        public void changePrice(double p)
         {
-            price = a;
+            price = p;
         }
 
         public double getBalance()
@@ -52,14 +53,18 @@ namespace classUsers
 
         public double getChangesInBalance()
         {
-            if (getTime() > 15)
-                return ((getTime()-15) * price);
-            else
-                return 0;
+            //if (getTime() > 15)
+                return ((getTime()) * price);
+           // else
+               // return 0;
         }
         private void changeBalance()
         {
             balance-=getChangesInBalance();
+        }
+        public double getPrice()
+        {
+            return price;
         }
     }
 }
