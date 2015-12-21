@@ -21,6 +21,8 @@ namespace Terminal
         Form_close formC;
         Form_car_number form2;
         Form_user_info form_info;
+        Form_open form_open;
+        Form_final form_final;
         Log L;
         DataSet1TableAdapters.PriceTableAdapter price;
         private int num_row;
@@ -103,7 +105,7 @@ namespace Terminal
         private void Form_operator_Load(object sender, EventArgs e)
         {
             test = new Test(this);
-            this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2));
+            this.Location = new Point((screen.X / 2) - (this.Width / 2), (screen.Y / 2) - (this.Height / 2) - 150);
             
             form2 = new Form_car_number(this);
             form2.Show();
@@ -297,16 +299,22 @@ namespace Terminal
                 form2.WindowState = FormWindowState.Normal;
                 formC.WindowState = FormWindowState.Normal;
                 L.WindowState = FormWindowState.Normal;
-                form2.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y));
-                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
-                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+                form_open.WindowState = FormWindowState.Normal;
+                form_final.WindowState = FormWindowState.Normal;
+                form2.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) );
+                formC.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) + (this.Height) - formC.Height );
+                L.Location = new Point(this.Location.X - L.Width, this.Location.Y );
+                form_open.Location = new Point((this.Location.X) - (L.Width), (this.Location.Y) + (L.Height));
+                form_final.Location = new Point((this.Location.X)+(this.Width)-(form2.Width)+45, (this.Location.Y)+(this.Height) );
             }
             else
             {
                 button2.Text = "включить";
-                form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y));
-                formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height);
-                L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y);
+                form2.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) );
+                formC.Location = new Point((this.Location.X) + (this.Width) + 10, (this.Location.Y) + (this.Height) - formC.Height );
+                L.Location = new Point(this.Location.X - L.Width - 5, this.Location.Y );
+                form_open.Location = new Point((this.Location.X) - (L.Width)-5, (this.Location.Y) + (L.Height)+10);
+                form_final.Location = new Point((this.Location.X) + (this.Width) - (form2.Width) + 56, (this.Location.Y) + (this.Height)+10);
                 move_form = false;
             }
         }
@@ -331,9 +339,11 @@ namespace Terminal
         {
             if (move_form == true)
             {
-                form2.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y));
-                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
-                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+                form2.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) );
+                formC.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) + (this.Height) - formC.Height );
+                L.Location = new Point(this.Location.X - L.Width, this.Location.Y );
+                form_open.Location = new Point((this.Location.X) - (L.Width), (this.Location.Y) + (L.Height));
+                form_final.Location = new Point((this.Location.X) + (this.Width) - (form2.Width) + 45, (this.Location.Y) + (this.Height));
             }
         }
 
@@ -341,9 +351,43 @@ namespace Terminal
         {
             if (move_form == true)
             {
-                form2.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y));
-                formC.Location = new Point((this.Location.X) + (this.Width) , (this.Location.Y) + (this.Height) - formC.Height);
-                L.Location = new Point(this.Location.X - L.Width , this.Location.Y);
+                form2.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) );
+                formC.Location = new Point((this.Location.X) + (this.Width), (this.Location.Y) + (this.Height) - formC.Height );
+                L.Location = new Point(this.Location.X - L.Width, this.Location.Y );
+                form_open.Location = new Point((this.Location.X) - (L.Width), (this.Location.Y) + (L.Height));
+                form_final.Location = new Point((this.Location.X) + (this.Width) - (form2.Width) + 45, (this.Location.Y) + (this.Height));
+            }
+        }
+        public void add_open(Form_open form_open_real)
+        {
+            form_open = form_open_real;
+        }
+        public void add_final(Form_final form_final_real)
+        {
+            form_final = form_final_real;
+        }
+
+        private void textBox_carNumber1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber1.Text.Length >= 1)
+            {
+                textBox_carNumber2.Focus();
+            }
+        }
+
+        private void textBox_carNumber2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber2.Text.Length >= 3)
+            {
+                textBox_carNumber3.Focus();
+            }
+        }
+
+        private void textBox_carNumber3_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber3.Text.Length >= 2)
+            {
+                textBox_money.Focus();
             }
         }
    

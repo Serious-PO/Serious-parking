@@ -63,13 +63,13 @@ namespace Terminal
                         InfoArea.AppendText(userInfo.GetData().Rows[i]["Operation"].ToString() + "\t");
                         InfoArea.AppendText(userInfo.GetData().Rows[i]["CarNumber"].ToString() + "\t" +
                             "  " +
-                            userInfo.GetData().Rows[i]["Balance"].ToString() + "\t\t" +
-                            userInfo.GetData().Rows[i]["Money"].ToString() + "\t" +
-                            userInfo.GetData().Rows[i]["NewBalance"].ToString() + "\t\t" +
+                            Double.Parse(userInfo.GetData().Rows[i]["Balance"].ToString()).ToString("0.00") + "\t\t" +
+                            Double.Parse(userInfo.GetData().Rows[i]["Money"].ToString()).ToString("0.00") + "\t" +
+                            Double.Parse(userInfo.GetData().Rows[i]["NewBalance"].ToString()).ToString("0.00") + "\t\t" +
                             userInfo.GetData().Rows[i]["ParkingTime"].ToString() + " мин." + "\t" +
                             date + "\n");
                         InfoArea.SelectionColor = Color.Black;
-                        InfoArea.AppendText("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+                        InfoArea.AppendText("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
                     
                 }
                 

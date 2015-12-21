@@ -12,6 +12,7 @@ namespace Terminal
     public partial class Form_add_user : Form
     {
         private Test test;
+        private bool first_name=true;
         public bool testLeft=false;
         private bool tryDate = false;
         private bool tryNumb = true;
@@ -233,7 +234,193 @@ namespace Terminal
 
         private void Form_add_user_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
+
+        }
+
+        private void textBox_last_name_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_last_name.Text == "Иванов")&&(textBox_last_name.ForeColor == Color.Gray))
+            {
+                textBox_last_name.Text = "";
+            }
+            textBox_last_name.ForeColor = Color.Black;
+        }
+
+        private void textBox_last_name_Leave(object sender, EventArgs e)
+        {
+            if (textBox_last_name.Text.Length == 0)
+            {
+                textBox_last_name.ForeColor = Color.Gray;
+                textBox_last_name.Text = "Иванов";
+            }
+        }
+
+        private void textBox_first_name_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_first_name.Text == "Иван")&&(textBox_first_name.ForeColor== Color.Gray))
+            {
+                textBox_first_name.Text = "";
+            }
+            textBox_first_name.ForeColor = Color.Black;
+        }
+
+        private void textBox_first_name_Leave(object sender, EventArgs e)
+        {
+            if (textBox_first_name.Text.Length == 0)
+            {
+                textBox_first_name.ForeColor = Color.Gray;
+                textBox_first_name.Text = "Иван";
+            }
+        }
+
+        private void textBox_day_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_day.Text == "01") && (textBox_day.ForeColor == Color.Gray))
+            {
+                textBox_day.Text = "";
+            }
+            textBox_day.ForeColor = Color.Black;
+        }
+
+        private void textBox_day_Leave(object sender, EventArgs e)
+        {
+            if (textBox_day.Text.Length == 0)
+            {
+                textBox_day.ForeColor = Color.Gray;
+                textBox_day.Text = "01";
+            }
+        }
+
+        private void textBox_month_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_month.Text == "01") && (textBox_month.ForeColor == Color.Gray))
+            {
+                textBox_month.Text = "";
+            }
+            textBox_month.ForeColor = Color.Black;
+        }
+
+        private void textBox_month_Leave(object sender, EventArgs e)
+        {
+            if (textBox_month.Text.Length == 0)
+            {
+                textBox_month.ForeColor = Color.Gray;
+                textBox_month.Text = "01";
+            }
+        }
+
+        private void textBox_year_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_year.Text == "1990") && (textBox_year.ForeColor == Color.Gray))
+            {
+                textBox_year.Text = "";
+            }
+            textBox_year.ForeColor = Color.Black;
+        }
+
+        private void textBox_year_Leave(object sender, EventArgs e)
+        {
+            if (textBox_year.Text.Length == 0)
+            {
+                textBox_year.ForeColor = Color.Gray;
+                textBox_year.Text = "1990";
+            }
+        }
+
+        private void textBox_carNumber1_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_carNumber1.Text == "А") && (textBox_carNumber1.ForeColor == Color.Gray))
+            {
+                textBox_carNumber1.Text = "";
+            }
+            textBox_carNumber1.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber1_Leave(object sender, EventArgs e)
+        {
+            if (textBox_carNumber1.Text.Length == 0)
+            {
+                textBox_carNumber1.ForeColor = Color.Gray;
+                textBox_carNumber1.Text = "А";
+            }
+        }
+
+        private void textBox_carNumber2_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_carNumber2.Text == "000") && (textBox_carNumber2.ForeColor == Color.Gray))
+            {
+                textBox_carNumber2.Text = "";
+            }
+            textBox_carNumber2.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber2_Leave(object sender, EventArgs e)
+        {
+            if (textBox_carNumber2.Text.Length == 0)
+            {
+                textBox_carNumber2.ForeColor = Color.Gray;
+                textBox_carNumber2.Text = "000";
+            }
+        }
+
+        private void textBox_carNumber3_Enter(object sender, EventArgs e)
+        {
+            if ((textBox_carNumber3.Text == "АА") && (textBox_carNumber3.ForeColor == Color.Gray))
+            {
+                textBox_carNumber3.Text = "";
+            }
+            textBox_carNumber3.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber3_Leave(object sender, EventArgs e)
+        {
+            if (textBox_carNumber3.Text.Length == 0)
+            {
+                textBox_carNumber3.ForeColor = Color.Gray;
+                textBox_carNumber3.Text = "АА";
+            }
+        }
+
+        private void text_telephone_Enter(object sender, EventArgs e)
+        {
+            if ((text_telephone.Text == "88005553535") && (text_telephone.ForeColor == Color.Gray))
+            {
+                text_telephone.Text = "";
+            }
+            text_telephone.ForeColor = Color.Black;
+        }
+
+        private void text_telephone_Leave(object sender, EventArgs e)
+        {
+            if (text_telephone.Text.Length == 0)
+            {
+                text_telephone.ForeColor = Color.Gray;
+                text_telephone.Text = "88005553535";
+            }
+        }
+
+        private void textBox_carNumber1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber1.Text.Length >= 1)
+            {
+                textBox_carNumber2.Focus();
+            }
+        }
+
+        private void textBox_carNumber2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber2.Text.Length >= 3)
+            {
+                textBox_carNumber3.Focus();
+            }
+        }
+
+        private void textBox_carNumber3_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_carNumber3.Text.Length >= 2)
+            {
+                text_telephone.Focus();
+            }
         }
 
     }

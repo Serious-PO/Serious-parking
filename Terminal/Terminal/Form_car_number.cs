@@ -46,21 +46,19 @@ namespace Terminal
                     if ((double.Parse(user.GetData().Rows[i]["Balance"].ToString()) > 0) && (user.GetData().Rows[i]["OnParking"].ToString() == false.ToString()))
                     {
                         user.updateTimeEnter(DateTime.Now, comboBox_num.Text.ToString());
-                        form_open = new Form_open(this, frm);
-                        form_open.Show();
-                        frm.logChang(number(), "Въезд");
+                        
+                        form_open.activate_open();
+                       frm.logChang(number(), "Въезд");
                     }
                     else
                     {
-                        form_error = new Form_Error(this, "Въезд");
-                        form_error.Show();
+                        form_open.open_error();
                     }
                 }
             }
             if (check == false)
             {
-                form_error = new Form_Error(this, "Въезд");
-                form_error.Show();
+                form_open.open_error();
                 new_lable();
             }
         }
@@ -105,6 +103,8 @@ namespace Terminal
             new_lable();
             this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
             this.Location = new Point((frm.Location.X)+(frm.Width)+10, (frm.Location.Y));
+            form_open = new Form_open(this,frm);
+            form_open.Show();
         }
 
         private void button_refresh_Click(object sender, EventArgs e)

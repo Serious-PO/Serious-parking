@@ -45,23 +45,20 @@ namespace Terminal
                     if (user.GetData().Rows[i]["OnParking"].ToString() == true.ToString())
                     {
                         user.updateTimeQuit(DateTime.Now, comboBox_num.Text.ToString());
-                        form_final = new Form_final(this, frm);
-                        form_final.Show();
                         frm.logChang(number(), "Выезд");
+                        form_final.activate_final();
                         
                     }
                     else
                     {
-                        form_error = new Form_Error(this, "Выезд");
-                        form_error.Show();
+                        form_final.final_error();
                     }
                 }
 
             }
             if (check == false)
             {
-                form_error = new Form_Error(this, "Выезд");
-                form_error.Show();
+                form_final.final_error();
             }
             new_lable();
             
@@ -107,6 +104,8 @@ namespace Terminal
             new_lable();
             this.userQuerry1TableAdapter.Fill(this.dataSet1.UserQuerry1);
             this.Location = new Point((frm.Location.X) + (frm.Width)+10, (frm.Location.Y)+(frm.Height)-this.Height);
+            form_final = new Form_final(this,frm);
+            form_final.Show();
 
         }
 
