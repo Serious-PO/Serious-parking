@@ -52,8 +52,7 @@
             this.textBox_last_name.Name = "textBox_last_name";
             this.textBox_last_name.Size = new System.Drawing.Size(148, 20);
             this.textBox_last_name.TabIndex = 0;
-            this.textBox_last_name.Enter += new System.EventHandler(this.textBox_last_name_Enter);
-            this.textBox_last_name.MouseEnter += new System.EventHandler(this.textBox_last_name_MouseEnter);
+            this.textBox_last_name.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_last_name_MouseClick);
             // 
             // textBox_first_name
             // 

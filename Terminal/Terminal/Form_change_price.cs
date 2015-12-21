@@ -94,6 +94,20 @@ namespace Terminal
 
             this.Location = new Point((form_operator.screen.X / 2) - (this.Width / 2), (form_operator.screen.Y / 2) - (this.Height / 2));
             test = new Test(this);
+            textBox_password.Text = "******";
+            textBox_password.ForeColor = Color.Gray;
+        }
+
+        private void textBox_password_Enter(object sender, EventArgs e)
+        {
+           // textBox_password.Text = null;
+           // textBox_password.ForeColor = Color.Black;
+        }
+
+        private void textBox_password_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox_password.Text = null;
+            textBox_password.ForeColor = Color.Black;
         }
 
     }

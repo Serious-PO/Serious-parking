@@ -229,9 +229,9 @@ namespace Terminal
         {
             this.Location = new Point((form_opreator.screen.X / 2) - (this.Width / 2), (form_opreator.screen.Y / 2) - (this.Height / 2)-20);
              test = new Test(this);
-             textBox_first_name.Text = "Имя";
+             textBox_first_name.Text = "Иван";
              textBox_first_name.ForeColor = Color.Gray;
-             textBox_last_name.Text = "Фамилия";
+             textBox_last_name.Text = "Иванов";
              textBox_last_name.ForeColor = Color.Gray;
              textBox_day.Text = "01";
              textBox_day.ForeColor = Color.Gray;
@@ -315,7 +315,8 @@ namespace Terminal
             text_telephone.ForeColor = Color.Black;
         }
 
-        private void textBox_last_name_MouseEnter(object sender, EventArgs e)
+
+        private void textBox_last_name_MouseClick(object sender, MouseEventArgs e)
         {
             textBox_last_name.Text = null;
             textBox_last_name.ForeColor = Color.Black;

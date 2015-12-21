@@ -101,6 +101,7 @@
             this.textBox_carNumber3.Name = "textBox_carNumber3";
             this.textBox_carNumber3.Size = new System.Drawing.Size(47, 20);
             this.textBox_carNumber3.TabIndex = 3;
+            this.textBox_carNumber3.Enter += new System.EventHandler(this.textBox_carNumber3_Enter);
             this.textBox_carNumber3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber3_KeyPress);
             // 
             // textBox_carNumber2
@@ -109,6 +110,7 @@
             this.textBox_carNumber2.Name = "textBox_carNumber2";
             this.textBox_carNumber2.Size = new System.Drawing.Size(56, 20);
             this.textBox_carNumber2.TabIndex = 2;
+            this.textBox_carNumber2.Enter += new System.EventHandler(this.textBox_carNumber2_Enter);
             this.textBox_carNumber2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber2_KeyPress);
             // 
             // textBox_carNumber1
@@ -117,6 +119,7 @@
             this.textBox_carNumber1.Name = "textBox_carNumber1";
             this.textBox_carNumber1.Size = new System.Drawing.Size(33, 20);
             this.textBox_carNumber1.TabIndex = 1;
+            this.textBox_carNumber1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_carNumber1_MouseClick);
             this.textBox_carNumber1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_carNumber1_KeyPress);
             // 
             // textBox_money
@@ -125,6 +128,7 @@
             this.textBox_money.Name = "textBox_money";
             this.textBox_money.Size = new System.Drawing.Size(148, 20);
             this.textBox_money.TabIndex = 4;
+            this.textBox_money.Enter += new System.EventHandler(this.textBox_money_Enter);
             this.textBox_money.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_money_KeyPress);
             // 
             // button_user_info

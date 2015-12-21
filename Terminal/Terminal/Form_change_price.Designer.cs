@@ -61,6 +61,7 @@
             this.textBox_password.PasswordChar = '*';
             this.textBox_password.Size = new System.Drawing.Size(143, 20);
             this.textBox_password.TabIndex = 1;
+            this.textBox_password.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_password_MouseClick);
             this.textBox_password.TextChanged += new System.EventHandler(this.textBox_password_TextChanged);
             // 
             // textBox_price

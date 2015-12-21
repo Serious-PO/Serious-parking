@@ -100,6 +100,14 @@ namespace Terminal
             formC = new Form_close(this);
             formC.Show();
             L = new Log(this);
+            textBox_carNumber1.Text = "A";
+            textBox_carNumber1.ForeColor = Color.Gray;
+            textBox_carNumber2.Text = "435";
+            textBox_carNumber2.ForeColor = Color.Gray;
+            textBox_carNumber3.Text = "TC";
+            textBox_carNumber3.ForeColor = Color.Gray;
+            textBox_money.Text = "1000";
+            textBox_money.ForeColor = Color.Gray;
             L.Show();
         }
 
@@ -290,6 +298,30 @@ namespace Terminal
         private void button_user_info_Click(object sender, EventArgs e)
         {
             form_info.Show();
+        }
+
+        private void textBox_carNumber1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox_carNumber1.Text = null;
+            textBox_carNumber1.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber2_Enter(object sender, EventArgs e)
+        {
+            textBox_carNumber2.Text = null;
+            textBox_carNumber2.ForeColor = Color.Black;
+        }
+
+        private void textBox_carNumber3_Enter(object sender, EventArgs e)
+        {
+            textBox_carNumber3.Text = null;
+            textBox_carNumber3.ForeColor = Color.Black;
+        }
+
+        private void textBox_money_Enter(object sender, EventArgs e)
+        {
+            textBox_money.Text = null;
+            textBox_money.ForeColor = Color.Black;
         }
    
     }
