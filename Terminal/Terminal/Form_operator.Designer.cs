@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_operator));
             this.label_name = new System.Windows.Forms.Label();
             this.label_money = new System.Windows.Forms.Label();
@@ -43,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.visualStyler1 = new SkinSoft.VisualStyler.VisualStyler(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).BeginInit();
             this.SuspendLayout();
             // 
             // label_name
@@ -178,6 +181,12 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Группировка окон:";
             // 
+            // visualStyler1
+            // 
+            this.visualStyler1.HostForm = this;
+            this.visualStyler1.License = ((SkinSoft.VisualStyler.Licensing.VisualStylerLicense)(resources.GetObject("visualStyler1.License")));
+            this.visualStyler1.LoadVisualStyle(null, "OSX (Aqua).vssf");
+            // 
             // Form_operator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +216,7 @@
             this.Load += new System.EventHandler(this.Form_operator_Load);
             this.LocationChanged += new System.EventHandler(this.Form_operator_LocationChanged);
             this.MouseCaptureChanged += new System.EventHandler(this.Form_operator_MouseCaptureChanged);
+            ((System.ComponentModel.ISupportInitialize)(this.visualStyler1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +238,7 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox textBox_price;
         private System.Windows.Forms.Label label2;
+        private SkinSoft.VisualStyler.VisualStyler visualStyler1;
     }
 }
 
